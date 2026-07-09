@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Oakline Digital — Helping Local Businesses Grow Online</title>
+    <meta
+      name="description"
+      content="Oakline Digital designs fast, modern websites that help local businesses build trust, attract customers, and grow online. Website design, redesigns, maintenance, and custom web applications."
+    />
+    <meta
+      name="keywords"
+      content="web design agency, local business websites, website redesign, website maintenance, custom web applications, small business websites"
+    />
+    <meta name="author" content="Oakline Digital" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://oaklinedigital.com/" />
+    <meta name="theme-color" content="#0b0f0d" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Oakline Digital" />
+    <meta property="og:title" content="Oakline Digital — Helping Local Businesses Grow Online" />
+    <meta
+      property="og:description"
+      content="We design fast, modern websites that help businesses build trust, attract customers, and grow online."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://oaklinedigital.com/" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Oakline Digital — Helping Local Businesses Grow Online" />
+    <meta
+      name="twitter:description"
+      content="We design fast, modern websites that help businesses build trust, attract customers, and grow online."
+    />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- Icons / PWA -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('oakline-theme')
+          var isDark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
+          if (isDark) document.documentElement.classList.add('dark')
+        } catch (e) {}
+      })()
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
