@@ -107,32 +107,46 @@
 
   function initContactForm() {
     var form = document.querySelector('[data-contact-form]');
-    var success = document.querySelector('[data-contact-success]');
-    var resetBtn = document.querySelector('[data-contact-reset]');
-    if (!form || !success) return;
+    if (!form) return;
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var submitBtn = form.querySelector('button[type="submit"]');
-      var label = submitBtn.querySelector('[data-submit-label]');
-      submitBtn.disabled = true;
-      if (label) label.textContent = 'Sending...';
+    var BUSINESS_EMAIL = 'support@oaklinedigital.com';
+    var BUSINESS_PHONE = '+14046494654';
 
-      window.setTimeout(function () {
-        form.classList.add('is-hidden');
-        success.classList.add('is-shown');
-      }, 900);
-    });
+    function field(name) {
+      var el = form.elements[name];
+      return el ? el.value.trim() : '';
+    }
 
-    if (resetBtn) {
-      resetBtn.addEventListener('click', function () {
-        success.classList.remove('is-shown');
-        form.classList.remove('is-hidden');
-        form.reset();
-        var submitBtn = form.querySelector('button[type="submit"]');
-        var label = submitBtn.querySelector('[data-submit-label]');
-        submitBtn.disabled = false;
-        if (label) label.textContent = 'Request a Free Consultation';
+    function buildBody() {
+      var lines = ['Name: ' + field('name')];
+      if (field('business')) lines.push('Business: ' + field('business'));
+      if (field('email')) lines.push('Email: ' + field('email'));
+      if (field('phone')) lines.push('Phone: ' + field('phone'));
+      if (field('service')) lines.push('Service: ' + field('service'));
+      lines.push('');
+      lines.push('Message:');
+      lines.push(field('message'));
+      return lines.join('\n');
+    }
+
+    var emailBtn = form.querySelector('[data-send-email]');
+    var textBtn = form.querySelector('[data-send-text]');
+
+    if (emailBtn) {
+      emailBtn.addEventListener('click', function () {
+        if (!form.reportValidity()) return;
+        var business = field('business');
+        var subject = 'New Project Inquiry' + (business ? ' — ' + business : '');
+        var url = 'mailto:' + BUSINESS_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(buildBody());
+        window.location.href = url;
+      });
+    }
+
+    if (textBtn) {
+      textBtn.addEventListener('click', function () {
+        if (!form.reportValidity()) return;
+        var url = 'sms:' + BUSINESS_PHONE + '?body=' + encodeURIComponent(buildBody());
+        window.location.href = url;
       });
     }
   }
