@@ -23,9 +23,9 @@
   <meta name="twitter:description" content="Request a free consultation with Oakline Digital. Tell us about your business and we'll help you plan the right website." />
   <meta name="twitter:image" content="og-image.png" />
 
-  <link rel="icon" type="image/svg+xml" href="logo.svg" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/svg+xml" href="logo.svg?v=2" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" />
   <link rel="manifest" href="manifest.webmanifest" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -49,16 +49,7 @@
     <div class="container">
       <div class="navbar-bar">
         <a href="index.html" class="logo">
-          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="40" height="40" rx="11" class="logo-bg" />
-            <path d="M20 8C20 8 27 14.5 27 21.5C27 26.194 23.866 30 20 30C16.134 30 13 26.194 13 21.5C13 14.5 20 8 20 8Z" fill="url(#oakline-leaf)" />
-            <path d="M20 30V16" class="logo-stem" stroke-width="1.4" stroke-linecap="round" />
-            <defs>
-              <linearGradient id="oakline-leaf" x1="13" y1="8" x2="27" y2="30" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#75CFA9" /><stop offset="1" stop-color="#187A57" />
-              </linearGradient>
-            </defs>
-          </svg>
+          <img src="logo.svg" alt="Oakline Digital" width="32" height="32" />
           <span class="logo-word">Oakline <span>Digital</span></span>
         </a>
 
@@ -125,11 +116,11 @@
           <div class="reveal contact-info">
             <div class="card-surface contact-detail rounded-2xl">
               <span class="contact-detail-icon"><svg class="icon"><use href="assets/icons/sprite.svg#icon-phone"></use></svg></span>
-              <div><p class="label">Phone</p><a class="value" href="tel:+15555550123">(555) 555-0123</a></div>
+              <div><p class="label">Phone</p><a class="value" href="tel:+14046494654">(404) 649-4654</a></div>
             </div>
             <div class="card-surface contact-detail rounded-2xl">
               <span class="contact-detail-icon"><svg class="icon"><use href="assets/icons/sprite.svg#icon-mail"></use></svg></span>
-              <div><p class="label">Email</p><a class="value" href="mailto:hello@oaklinedigital.com">hello@oaklinedigital.com</a></div>
+              <div><p class="label">Email</p><a class="value" href="mailto:support@oaklinedigital.com">support@oaklinedigital.com</a></div>
             </div>
             <div class="card-surface contact-detail rounded-2xl">
               <span class="contact-detail-icon"><svg class="icon"><use href="assets/icons/sprite.svg#icon-map-pin"></use></svg></span>
@@ -147,21 +138,14 @@
           </div>
 
           <div class="reveal card-surface contact-form-card rounded-3xl">
-            <div class="form-success" data-contact-success>
-              <div class="form-success-icon"><svg width="32" height="32"><use href="assets/icons/sprite.svg#icon-check-circle"></use></svg></div>
-              <h3>Message sent!</h3>
-              <p>Thanks for reaching out. We'll get back to you within one business day to schedule your free consultation.</p>
-              <button type="button" class="btn btn-secondary" data-contact-reset>Send another message</button>
-            </div>
-
             <form class="contact-form" data-contact-form>
               <div class="form-grid">
                 <div class="field"><label for="name">Full Name</label><input id="name" name="name" type="text" required placeholder="Jane Smith" /></div>
                 <div class="field"><label for="business">Business Name</label><input id="business" name="business" type="text" placeholder="Smith's Bakery" /></div>
               </div>
               <div class="form-grid">
-                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="jane@business.com" /></div>
-                <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="(555) 555-0123" /></div>
+                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="jane@business.com" /></div>
+                <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" /></div>
               </div>
               <div class="field">
                 <label for="service">What do you need help with?</label>
@@ -181,11 +165,15 @@
                 <textarea id="message" name="message" required rows="5" placeholder="A few details about your business and what you're looking for..."></textarea>
               </div>
 
-              <button type="submit" class="btn btn-primary btn-lg btn-block">
-                <span data-submit-label>Request a Free Consultation</span>
-                <svg class="icon"><use href="assets/icons/sprite.svg#icon-send"></use></svg>
-              </button>
-              <p class="form-note">This form is for demonstration purposes and does not send data anywhere.</p>
+              <div class="form-actions">
+                <button type="button" class="btn btn-primary btn-lg btn-block" data-send-email>
+                  Send Email <svg class="icon"><use href="assets/icons/sprite.svg#icon-mail"></use></svg>
+                </button>
+                <button type="button" class="btn btn-secondary btn-lg btn-block" data-send-text>
+                  Send Text <svg class="icon"><use href="assets/icons/sprite.svg#icon-send"></use></svg>
+                </button>
+              </div>
+              <p class="form-note">Tapping a button opens your email or messaging app with these details already filled in — just review and hit send.</p>
             </form>
           </div>
         </div>
@@ -198,16 +186,7 @@
       <div class="footer-grid">
         <div class="footer-col-brand">
           <a href="index.html" class="logo">
-            <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="40" rx="11" class="logo-bg" />
-              <path d="M20 8C20 8 27 14.5 27 21.5C27 26.194 23.866 30 20 30C16.134 30 13 26.194 13 21.5C13 14.5 20 8 20 8Z" fill="url(#oakline-leaf-footer)" />
-              <path d="M20 30V16" class="logo-stem" stroke-width="1.4" stroke-linecap="round" />
-              <defs>
-                <linearGradient id="oakline-leaf-footer" x1="13" y1="8" x2="27" y2="30" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#75CFA9" /><stop offset="1" stop-color="#187A57" />
-                </linearGradient>
-              </defs>
-            </svg>
+            <img src="logo.svg" alt="Oakline Digital" width="32" height="32" />
             <span class="logo-word">Oakline <span>Digital</span></span>
           </a>
           <p class="footer-tagline">Helping local businesses grow online with fast, modern, professional websites.</p>
@@ -246,8 +225,8 @@
         <div>
           <h3 class="footer-heading">Contact</h3>
           <ul class="footer-contact">
-            <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-phone"></use></svg><a href="tel:+15555550123">(555) 555-0123</a></li>
-            <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-mail"></use></svg><a href="mailto:hello@oaklinedigital.com">hello@oaklinedigital.com</a></li>
+            <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-phone"></use></svg><a href="tel:+14046494654">(404) 649-4654</a></li>
+            <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-mail"></use></svg><a href="mailto:support@oaklinedigital.com">support@oaklinedigital.com</a></li>
             <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-map-pin"></use></svg><span>Serving businesses nationwide</span></li>
             <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-clock"></use></svg><span>Mon–Fri, 9am–5pm</span></li>
           </ul>

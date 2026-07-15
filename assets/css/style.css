@@ -332,14 +332,10 @@ html.dark .glass { border-color: rgba(255, 255, 255, 0.1); background: rgba(255,
 html.dark .navbar.is-condensed .navbar-bar { border-color: rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); }
 
 .logo { display: inline-flex; align-items: center; gap: 0.625rem; }
-.logo svg { flex-shrink: 0; }
+.logo img, .logo svg { flex-shrink: 0; border-radius: 8px; }
 .logo-word { font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; letter-spacing: -0.01em; color: var(--heading); }
 .logo-word span { color: var(--brand-600); }
 html.dark .logo-word span { color: var(--brand-300); }
-.logo-bg { fill: var(--stone-900); }
-html.dark .logo-bg { fill: #fff; }
-.logo-stem { stroke: rgba(28, 25, 23, 0.4); }
-html.dark .logo-stem { stroke: rgba(255, 255, 255, 0.4); }
 
 .nav-links { display: none; align-items: center; gap: 0.25rem; }
 @media (min-width: 1024px) { .nav-links { display: flex; } }
