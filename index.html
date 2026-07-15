@@ -1,68 +1,690 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Oakline Digital — Helping Local Businesses Grow Online</title>
-    <meta
-      name="description"
-      content="Oakline Digital designs fast, modern websites that help local businesses build trust, attract customers, and grow online. Website design, redesigns, maintenance, and custom web applications."
-    />
-    <meta
-      name="keywords"
-      content="web design agency, local business websites, website redesign, website maintenance, custom web applications, small business websites"
-    />
-    <meta name="author" content="Oakline Digital" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://oaklinedigital.com/" />
-    <meta name="theme-color" content="#0b0f0d" />
+  <title>Oakline Digital — Helping Local Businesses Grow Online</title>
+  <meta
+    name="description"
+    content="Oakline Digital designs fast, modern websites that help local businesses build trust, attract customers, and grow online. Website design, redesigns, maintenance, and custom web applications."
+  />
+  <meta
+    name="keywords"
+    content="web design agency, local business websites, website redesign, website maintenance, custom web applications, small business websites"
+  />
+  <meta name="author" content="Oakline Digital" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://oaklinedigital.com/" />
+  <meta name="theme-color" content="#0b0f0d" />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Oakline Digital" />
-    <meta property="og:title" content="Oakline Digital — Helping Local Businesses Grow Online" />
-    <meta
-      property="og:description"
-      content="We design fast, modern websites that help businesses build trust, attract customers, and grow online."
-    />
-    <meta property="og:image" content="/og-image.png" />
-    <meta property="og:url" content="https://oaklinedigital.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Oakline Digital" />
+  <meta property="og:title" content="Oakline Digital — Helping Local Businesses Grow Online" />
+  <meta
+    property="og:description"
+    content="We design fast, modern websites that help businesses build trust, attract customers, and grow online."
+  />
+  <meta property="og:image" content="og-image.png" />
+  <meta property="og:url" content="https://oaklinedigital.com/" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Oakline Digital — Helping Local Businesses Grow Online" />
-    <meta
-      name="twitter:description"
-      content="We design fast, modern websites that help businesses build trust, attract customers, and grow online."
-    />
-    <meta name="twitter:image" content="/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Oakline Digital — Helping Local Businesses Grow Online" />
+  <meta
+    name="twitter:description"
+    content="We design fast, modern websites that help businesses build trust, attract customers, and grow online."
+  />
+  <meta name="twitter:image" content="og-image.png" />
 
-    <!-- Icons / PWA -->
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <script>
-      (function () {
-        try {
-          var stored = localStorage.getItem('oakline-theme')
-          var isDark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
-          if (isDark) document.documentElement.classList.add('dark')
-        } catch (e) {}
-      })()
-    </script>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('oakline-theme')
+        var isDark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (isDark) document.documentElement.classList.add('dark')
+      } catch (e) {}
+    })()
+  </script>
+
+  <header class="navbar" data-navbar>
+    <div class="container">
+      <div class="navbar-bar">
+        <a href="index.html" class="logo">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="11" class="logo-bg" />
+            <path d="M20 8C20 8 27 14.5 27 21.5C27 26.194 23.866 30 20 30C16.134 30 13 26.194 13 21.5C13 14.5 20 8 20 8Z" fill="url(#oakline-leaf)" />
+            <path d="M20 30V16" class="logo-stem" stroke-width="1.4" stroke-linecap="round" />
+            <defs>
+              <linearGradient id="oakline-leaf" x1="13" y1="8" x2="27" y2="30" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#75CFA9" /><stop offset="1" stop-color="#187A57" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="logo-word">Oakline <span>Digital</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html" class="is-active">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="process.html">Process</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="navbar-actions">
+          <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+            <svg class="icon"><use href="assets/icons/sprite.svg#icon-moon"></use></svg>
+          </button>
+          <a href="contact.html" class="btn btn-primary">
+            Free Consultation
+            <svg class="icon"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg>
+          </a>
+        </div>
+
+        <div class="navbar-actions-mobile">
+          <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+            <svg class="icon"><use href="assets/icons/sprite.svg#icon-moon"></use></svg>
+          </button>
+          <button class="icon-btn" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+            <svg class="icon"><use href="assets/icons/sprite.svg#icon-menu"></use></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-menu" data-menu>
+      <div class="container">
+        <div class="mobile-menu-inner glass">
+          <a href="index.html" class="is-active">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="process.html">Process</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html" class="btn btn-primary btn-block">Request a Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="noise-grid"></div>
+      <div class="glow-blob"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="reveal badge-row">
+            <span class="badge">
+              <svg class="icon" style="width:13px;height:13px"><use href="assets/icons/sprite.svg#icon-sparkles"></use></svg>
+              Trusted by local businesses everywhere
+            </span>
+          </div>
+
+          <h1 class="reveal">Helping Local Businesses <span class="text-gradient">Grow Online.</span></h1>
+
+          <p class="reveal lead">
+            We design fast, modern websites that help businesses build trust, attract customers, and grow
+            online — with transparent pricing and no confusing tech jargon.
+          </p>
+
+          <div class="reveal hero-ctas">
+            <a href="contact.html" class="btn btn-primary btn-lg">
+              Request a Free Consultation
+              <svg class="icon"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg>
+            </a>
+            <a href="portfolio.html" class="btn btn-secondary btn-lg">View Portfolio</a>
+          </div>
+
+          <div class="reveal hero-trust">
+            <span>✓ You own your website</span>
+            <span>✓ No lock-in contracts</span>
+            <span>✓ Mobile-first design</span>
+          </div>
+        </div>
+
+        <div class="reveal phone-wrap">
+          <div class="glow"></div>
+          <div class="phone-frame">
+            <div class="notch"></div>
+            <div class="phone-screen">
+              <div class="phone-screen-inner">
+                <div class="phone-topbar">
+                  <span class="brand">Harvest &amp; Oak</span>
+                  <div class="dots"><span></span><span></span><span></span></div>
+                </div>
+                <div class="phone-hero">
+                  <div class="phone-hero-copy">
+                    <p>Fresh, Local, Delicious.</p>
+                    <span class="phone-hero-cta">Reserve a Table <svg class="icon"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></span>
+                  </div>
+                </div>
+                <div class="phone-rating">
+                  <svg class="icon icon-fill"><use href="assets/icons/sprite.svg#icon-star"></use></svg>
+                  <svg class="icon icon-fill"><use href="assets/icons/sprite.svg#icon-star"></use></svg>
+                  <svg class="icon icon-fill"><use href="assets/icons/sprite.svg#icon-star"></use></svg>
+                  <svg class="icon icon-fill"><use href="assets/icons/sprite.svg#icon-star"></use></svg>
+                  <svg class="icon icon-fill"><use href="assets/icons/sprite.svg#icon-star"></use></svg>
+                  <span>4.9 (238 reviews)</span>
+                </div>
+                <div class="phone-links">
+                  <div>Menu</div><div>Order Online</div><div>Catering</div><div>Events</div>
+                </div>
+                <div class="phone-lines"><div></div><div></div></div>
+                <div class="phone-footer">
+                  <svg class="icon"><use href="assets/icons/sprite.svg#icon-map-pin"></use></svg>
+                  <span>412 Main St — Open until 9pm</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="phone-callout glass top">
+            <p>Website Live</p>
+            <p>Launched in 3 weeks</p>
+          </div>
+          <div class="phone-callout glass bottom">
+            <p>98 / 100</p>
+            <p>Page speed score</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PWA -->
+    <section class="section">
+      <div class="container hero-grid">
+        <div class="reveal" style="order:2">
+          <span class="badge">Progressive Web App</span>
+          <h2 style="margin-top:1rem;font-size:1.875rem;font-weight:700">Your website, right on your customer's home screen.</h2>
+          <p style="margin-top:1rem;font-size:1.125rem;line-height:1.7;color:var(--muted)">
+            Every website we build can be installed like an app — no app store required. Customers tap once
+            and your business is one icon away, with fast loading and a full-screen experience.
+          </p>
+
+          <ol class="pwa-steps">
+            <li class="pwa-step"><span class="pwa-step-num">1</span><div><p>Visit your website</p><p>Open your business website in Safari or Chrome on any phone.</p></div></li>
+            <li class="pwa-step"><span class="pwa-step-num">2</span><div><p>Tap the share icon</p><p>Find the share button in the browser toolbar.</p></div></li>
+            <li class="pwa-step"><span class="pwa-step-num">3</span><div><p>Add to Home Screen</p><p>Your website now behaves like a real app icon.</p></div></li>
+          </ol>
+        </div>
+
+        <div class="reveal" style="order:1;display:flex;justify-content:center">
+          <div class="pwa-phone">
+            <div class="pwa-phone-frame">
+              <div class="pwa-phone-screen">
+                <div class="pwa-statusbar">
+                  <span>9:41</span>
+                  <div class="icons">
+                    <svg class="icon"><use href="assets/icons/sprite.svg#icon-signal"></use></svg>
+                    <svg class="icon"><use href="assets/icons/sprite.svg#icon-wifi"></use></svg>
+                    <svg class="icon"><use href="assets/icons/sprite.svg#icon-battery"></use></svg>
+                  </div>
+                </div>
+                <div class="pwa-appgrid"><div></div><div></div><div></div><div></div></div>
+                <div class="pwa-install">
+                  <div class="pwa-install-icon">
+                    <svg width="22" height="22" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="40" height="40" rx="11" fill="#123F31" />
+                      <path d="M20 8C20 8 27 14.5 27 21.5C27 26.194 23.866 30 20 30C16.134 30 13 26.194 13 21.5C13 14.5 20 8 20 8Z" fill="url(#pwa-leaf)" />
+                      <defs>
+                        <linearGradient id="pwa-leaf" x1="13" y1="8" x2="27" y2="30" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#75CFA9" /><stop offset="1" stop-color="#187A57" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  <span>Harvest &amp; Oak</span>
+                </div>
+                <div class="pwa-sheet">
+                  <div class="pwa-sheet-handle"></div>
+                  <div class="pwa-sheet-title">
+                    <svg class="icon"><use href="assets/icons/sprite.svg#icon-share"></use></svg>
+                    <span>Share</span>
+                  </div>
+                  <div class="pwa-sheet-action">
+                    <span class="pwa-sheet-action-icon"><svg class="icon" style="color:#fff"><use href="assets/icons/sprite.svg#icon-square-plus"></use></svg></span>
+                    <span>Add to Home Screen</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services preview -->
+    <section class="section">
+      <div class="container">
+        <div class="reveal section-heading">
+          <p class="eyebrow">Services</p>
+          <h2>Everything your business needs online.</h2>
+          <p>From your first landing page to a full custom application, we build it, and keep it running.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style="margin-top:3.5rem">
+          <div class="reveal card-surface service-card rounded-3xl">
+            <span class="service-icon"><svg class="icon" style="width:22px;height:22px"><use href="assets/icons/sprite.svg#icon-layout-template"></use></svg></span>
+            <h3>Website Design &amp; Development</h3>
+            <p>Custom-designed, hand-coded websites built to represent your business at its best — fast, modern, and mobile-first.</p>
+            <a href="contact.html" class="service-link">Start a project <svg class="icon" style="width:14px;height:14px"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </div>
+          <div class="reveal card-surface service-card rounded-3xl">
+            <span class="service-icon"><svg class="icon" style="width:22px;height:22px"><use href="assets/icons/sprite.svg#icon-refresh-ccw"></use></svg></span>
+            <h3>Website Redesign</h3>
+            <p>Outdated or underperforming site? We rebuild it from the ground up with modern design and clean code.</p>
+            <a href="contact.html" class="service-link">Get a redesign quote <svg class="icon" style="width:14px;height:14px"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </div>
+          <div class="reveal card-surface service-card rounded-3xl">
+            <span class="service-icon"><svg class="icon" style="width:22px;height:22px"><use href="assets/icons/sprite.svg#icon-wrench"></use></svg></span>
+            <h3>Website Maintenance</h3>
+            <p>Ongoing updates, backups, and security so your site keeps running smoothly long after launch.</p>
+            <a href="pricing.html" class="service-link">View maintenance plans <svg class="icon" style="width:14px;height:14px"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </div>
+          <div class="reveal card-surface service-card rounded-3xl">
+            <span class="service-icon"><svg class="icon" style="width:22px;height:22px"><use href="assets/icons/sprite.svg#icon-gauge"></use></svg></span>
+            <h3>Website Speed Optimization</h3>
+            <p>Slow websites lose customers. We optimize performance so your pages load fast on every device.</p>
+            <a href="contact.html" class="service-link">Speed up my site <svg class="icon" style="width:14px;height:14px"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </div>
+          <div class="reveal card-surface service-card rounded-3xl">
+            <span class="service-icon"><svg class="icon" style="width:22px;height:22px"><use href="assets/icons/sprite.svg#icon-shopping-cart"></use></svg></span>
+            <h3>E-Commerce Websites</h3>
+            <p>Sell products online with a fast, secure storefront designed to convert browsers into buyers.</p>
+            <a href="contact.html" class="service-link">Discuss my store <svg class="icon" style="width:14px;height:14px"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </div>
+          <div class="reveal card-surface service-card rounded-3xl">
+            <span class="service-icon"><svg class="icon" style="width:22px;height:22px"><use href="assets/icons/sprite.svg#icon-briefcase"></use></svg></span>
+            <h3>Portfolio Websites</h3>
+            <p>Showcase your work with a clean, elegant portfolio built to impress clients and land more business.</p>
+            <a href="contact.html" class="service-link">Build my portfolio <svg class="icon" style="width:14px;height:14px"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top:3rem;display:flex;justify-content:center">
+          <a href="services.html" class="btn btn-secondary btn-lg">View all services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why choose us -->
+    <section class="section">
+      <div class="container">
+        <div class="reveal section-heading">
+          <p class="eyebrow">Why Choose Us</p>
+          <h2>Honest, transparent, and genuinely helpful.</h2>
+          <p>We built Oakline Digital to be the web design partner we always wished existed — no jargon, no surprise invoices, no pressure.</p>
+        </div>
+
+        <div class="why-grid">
+          <div class="reveal card-surface why-item rounded-2xl"><svg class="icon"><use href="assets/icons/sprite.svg#icon-check-circle"></use></svg><span>No confusing tech jargon</span></div>
+          <div class="reveal card-surface why-item rounded-2xl"><svg class="icon"><use href="assets/icons/sprite.svg#icon-check-circle"></use></svg><span>Transparent pricing</span></div>
+          <div class="reveal card-surface why-item rounded-2xl"><svg class="icon"><use href="assets/icons/sprite.svg#icon-check-circle"></use></svg><span>Fast loading websites</span></div>
+          <div class="reveal card-surface why-item rounded-2xl"><svg class="icon"><use href="assets/icons/sprite.svg#icon-check-circle"></use></svg><span>Mobile-first design</span></div>
+          <div class="reveal card-surface why-item rounded-2xl"><svg class="icon"><use href="assets/icons/sprite.svg#icon-check-circle"></use></svg><span>Basic SEO included</span></div>
+          <div class="reveal card-surface why-item rounded-2xl"><svg class="icon"><use href="assets/icons/sprite.svg#icon-check-circle"></use></svg><span>Friendly one-on-one service</span></div>
+          <div class="reveal card-surface why-item rounded-2xl"><svg class="icon"><use href="assets/icons/sprite.svg#icon-check-circle"></use></svg><span>You own your website, domain, and hosting</span></div>
+          <div class="reveal card-surface why-item rounded-2xl"><svg class="icon"><use href="assets/icons/sprite.svg#icon-check-circle"></use></svg><span>We never lock clients into our services</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio preview -->
+    <section class="section">
+      <div class="container">
+        <div class="reveal section-heading">
+          <p class="eyebrow">Portfolio</p>
+          <h2>Websites built for businesses like yours.</h2>
+          <p>A look at the kinds of websites we design and build for local businesses across every industry.</p>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="reveal portfolio-card is-shown">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#fb923c,#f43f5e)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/harvest-oak-desktop.jpg" alt="Harvest & Oak Restaurant desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#fb923c,#f43f5e)">
+                    <img class="device-shot" src="assets/img/portfolio/harvest-oak-mobile.jpg" alt="Harvest & Oak Restaurant mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Restaurant</p><p class="title">Harvest &amp; Oak Restaurant</p></div>
+          </div>
+
+          <div class="reveal portfolio-card is-shown">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#f59e0b,#ca8a04)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/sterling-contracting-desktop.jpg" alt="Sterling Contracting Co. desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#f59e0b,#ca8a04)">
+                    <img class="device-shot" src="assets/img/portfolio/sterling-contracting-mobile.jpg" alt="Sterling Contracting Co. mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Contractor</p><p class="title">Sterling Contracting Co.</p></div>
+          </div>
+
+          <div class="reveal portfolio-card is-shown">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#38bdf8,#3b82f6)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/brightside-dental-desktop.jpg" alt="Brightside Family Dental desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#38bdf8,#3b82f6)">
+                    <img class="device-shot" src="assets/img/portfolio/brightside-dental-mobile.jpg" alt="Brightside Family Dental mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Dentist</p><p class="title">Brightside Family Dental</p></div>
+          </div>
+
+          <div class="reveal portfolio-card is-shown">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#34d399,#16a34a)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/evergreen-landscaping-desktop.jpg" alt="Evergreen Landscaping desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#34d399,#16a34a)">
+                    <img class="device-shot" src="assets/img/portfolio/evergreen-landscaping-mobile.jpg" alt="Evergreen Landscaping mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Landscaping</p><p class="title">Evergreen Landscaping</p></div>
+          </div>
+
+          <div class="reveal portfolio-card is-shown">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#64748b,#3f3f46)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/summit-roofing-desktop.jpg" alt="Summit Roofing Solutions desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#64748b,#3f3f46)">
+                    <img class="device-shot" src="assets/img/portfolio/summit-roofing-mobile.jpg" alt="Summit Roofing Solutions mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Roofing</p><p class="title">Summit Roofing Solutions</p></div>
+          </div>
+
+          <div class="reveal portfolio-card is-shown">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#6366f1,#7c3aed)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/whitmore-law-desktop.jpg" alt="Whitmore & Associates Law desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#6366f1,#7c3aed)">
+                    <img class="device-shot" src="assets/img/portfolio/whitmore-law-mobile.jpg" alt="Whitmore & Associates Law mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Law Firm</p><p class="title">Whitmore &amp; Associates Law</p></div>
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top:3rem;display:flex;justify-content:center">
+          <a href="portfolio.html" class="btn btn-secondary btn-lg">View full portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process preview -->
+    <section class="section">
+      <div class="container">
+        <div class="reveal section-heading">
+          <p class="eyebrow">Our Process</p>
+          <h2>A clear, guided path from idea to launch.</h2>
+          <p>No confusion, no guesswork. Here's exactly what working with Oakline Digital looks like.</p>
+        </div>
+
+        <div class="process-list">
+          <div class="process-rail"></div>
+          <div class="process-steps">
+            <div class="reveal process-step"><span class="process-num">1</span><div class="card-surface process-card rounded-2xl"><h3>Free Consultation</h3><p>We learn about your business, goals, and what you need your website to do.</p></div></div>
+            <div class="reveal process-step"><span class="process-num">2</span><div class="card-surface process-card rounded-2xl"><h3>Planning</h3><p>We map out site structure, content, and timeline so there are no surprises.</p></div></div>
+            <div class="reveal process-step"><span class="process-num">3</span><div class="card-surface process-card rounded-2xl"><h3>Design</h3><p>We design a custom look and feel that matches your brand and builds trust.</p></div></div>
+            <div class="reveal process-step"><span class="process-num">4</span><div class="card-surface process-card rounded-2xl"><h3>Development</h3><p>We hand-code your site for speed, responsiveness, and reliability.</p></div></div>
+            <div class="reveal process-step"><span class="process-num">5</span><div class="card-surface process-card rounded-2xl"><h3>Review</h3><p>You review the site and request changes until it feels exactly right.</p></div></div>
+            <div class="reveal process-step"><span class="process-num">6</span><div class="card-surface process-card rounded-2xl"><h3>Launch</h3><p>We publish your website and make sure everything works flawlessly.</p></div></div>
+            <div class="reveal process-step"><span class="process-num">7</span><div class="card-surface process-card rounded-2xl"><h3>Ongoing Support</h3><p>We stay available for updates, edits, and maintenance whenever you need it.</p></div></div>
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top:3.5rem;display:flex;justify-content:center">
+          <a href="process.html" class="btn btn-secondary btn-lg">See our full process</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing preview -->
+    <div class="border-t">
+      <section class="section">
+        <div class="container">
+          <div class="reveal section-heading">
+            <p class="eyebrow">Pricing</p>
+            <h2>Simple, transparent pricing.</h2>
+            <p>Starting prices for our most common projects. Every quote is customized to your business — no hidden fees, ever.</p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="reveal pricing-card card-surface rounded-3xl">
+              <h3>Landing Page</h3>
+              <p class="price">$400<span> starting at</span></p>
+              <p class="desc">A single, high-impact page to promote your business or offer.</p>
+              <a href="contact.html" class="btn btn-secondary btn-block">Get a quote <svg class="icon" style="width:15px;height:15px"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+            </div>
+            <div class="reveal pricing-card is-featured rounded-3xl">
+              <span class="most-popular">Most Popular</span>
+              <h3>Business Website</h3>
+              <p class="price">$900<span> starting at</span></p>
+              <p class="desc">Up to 5 pages — perfect for most local businesses.</p>
+              <a href="contact.html" class="btn btn-primary btn-block">Get a quote <svg class="icon" style="width:15px;height:15px"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+            </div>
+            <div class="reveal pricing-card card-surface rounded-3xl">
+              <h3>Large Website</h3>
+              <p class="price">$1,800<span> starting at</span></p>
+              <p class="desc">6–10 pages for businesses with more to showcase.</p>
+              <a href="contact.html" class="btn btn-secondary btn-block">Get a quote <svg class="icon" style="width:15px;height:15px"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+            </div>
+          </div>
+
+          <div class="reveal" style="margin-top:3rem;display:flex;justify-content:center">
+            <a href="pricing.html" class="btn btn-secondary btn-lg">See full pricing &amp; plans</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- FAQ preview -->
+    <div class="border-t">
+      <section class="section">
+        <div class="container" style="max-width:48rem">
+          <div class="reveal section-heading">
+            <p class="eyebrow">FAQ</p>
+            <h2>Frequently asked questions.</h2>
+            <p>Straight answers to the questions we hear most from local business owners.</p>
+          </div>
+
+          <div class="faq-list">
+            <details class="reveal card-surface faq-item" open>
+              <summary>How long does a website take?<svg class="icon"><use href="assets/icons/sprite.svg#icon-chevron-down"></use></svg></summary>
+              <p class="faq-answer">Most business websites take 2–4 weeks from our first conversation to launch, depending on scope and how quickly we receive content and feedback. Larger or custom projects may take longer — we'll give you a clear timeline before we start.</p>
+            </details>
+            <details class="reveal card-surface faq-item">
+              <summary>Who owns the website?<svg class="icon"><use href="assets/icons/sprite.svg#icon-chevron-down"></use></svg></summary>
+              <p class="faq-answer">You do — completely. You own your website, your domain, and your hosting. We never hold your site hostage or lock you into using us for anything after launch.</p>
+            </details>
+            <details class="reveal card-surface faq-item">
+              <summary>Can you redesign my current website?<svg class="icon"><use href="assets/icons/sprite.svg#icon-chevron-down"></use></svg></summary>
+              <p class="faq-answer">Yes. Whether your site was built years ago or on a platform you've outgrown, we can rebuild it with a modern design, faster performance, and code you fully own.</p>
+            </details>
+            <details class="reveal card-surface faq-item">
+              <summary>Do I need maintenance?<svg class="icon"><use href="assets/icons/sprite.svg#icon-chevron-down"></use></svg></summary>
+              <p class="faq-answer">Maintenance isn't required, but it's highly recommended. It keeps your site secure, backed up, and up to date so you can focus on running your business instead of your website.</p>
+            </details>
+          </div>
+
+          <div class="reveal" style="margin-top:3rem;display:flex;justify-content:center">
+            <a href="faq.html" class="btn btn-secondary btn-lg">Read all FAQs</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CTA -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="reveal cta-banner">
+          <h2>Ready to grow your business online?</h2>
+          <p>Request a free consultation and let's talk about what a modern website could do for you.</p>
+          <div class="btn-row">
+            <a href="contact.html" class="btn btn-primary btn-lg">Request a Free Consultation <svg class="icon"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col-brand">
+          <a href="index.html" class="logo">
+            <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="11" class="logo-bg" />
+              <path d="M20 8C20 8 27 14.5 27 21.5C27 26.194 23.866 30 20 30C16.134 30 13 26.194 13 21.5C13 14.5 20 8 20 8Z" fill="url(#oakline-leaf-footer)" />
+              <path d="M20 30V16" class="logo-stem" stroke-width="1.4" stroke-linecap="round" />
+              <defs>
+                <linearGradient id="oakline-leaf-footer" x1="13" y1="8" x2="27" y2="30" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75CFA9" /><stop offset="1" stop-color="#187A57" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="logo-word">Oakline <span>Digital</span></span>
+          </a>
+          <p class="footer-tagline">Helping local businesses grow online with fast, modern, professional websites.</p>
+          <div class="footer-socials">
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><svg class="icon" style="width:16px;height:16px"><use href="assets/icons/sprite.svg#icon-facebook"></use></svg></a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><svg class="icon" style="width:16px;height:16px"><use href="assets/icons/sprite.svg#icon-instagram"></use></svg></a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg class="icon" style="width:16px;height:16px"><use href="assets/icons/sprite.svg#icon-linkedin"></use></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Navigation</h3>
+          <ul class="footer-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="process.html">Process</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Services</h3>
+          <ul class="footer-list">
+            <li><a href="services.html">Website Design &amp; Development</a></li>
+            <li><a href="services.html">Website Redesign</a></li>
+            <li><a href="services.html">Website Maintenance</a></li>
+            <li><a href="services.html">Website Speed Optimization</a></li>
+            <li><a href="services.html">E-Commerce Websites</a></li>
+            <li><a href="services.html">Portfolio Websites</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Contact</h3>
+          <ul class="footer-contact">
+            <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-phone"></use></svg><a href="tel:+15555550123">(555) 555-0123</a></li>
+            <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-mail"></use></svg><a href="mailto:hello@oaklinedigital.com">hello@oaklinedigital.com</a></li>
+            <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-map-pin"></use></svg><span>Serving businesses nationwide</span></li>
+            <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-clock"></use></svg><span>Mon–Fri, 9am–5pm</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span data-year></span> Oakline Digital. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

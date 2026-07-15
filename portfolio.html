@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Portfolio | Oakline Digital</title>
+  <meta name="description" content="See the kinds of websites Oakline Digital designs and builds for restaurants, contractors, dentists, and more." />
+  <meta name="author" content="Oakline Digital" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://oaklinedigital.com/portfolio.html" />
+  <meta name="theme-color" content="#0b0f0d" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Oakline Digital" />
+  <meta property="og:title" content="Portfolio | Oakline Digital" />
+  <meta property="og:description" content="See the kinds of websites Oakline Digital designs and builds for restaurants, contractors, dentists, and more." />
+  <meta property="og:image" content="og-image.png" />
+  <meta property="og:url" content="https://oaklinedigital.com/portfolio.html" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portfolio | Oakline Digital" />
+  <meta name="twitter:description" content="See the kinds of websites Oakline Digital designs and builds for restaurants, contractors, dentists, and more." />
+  <meta name="twitter:image" content="og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('oakline-theme')
+        var isDark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (isDark) document.documentElement.classList.add('dark')
+      } catch (e) {}
+    })()
+  </script>
+
+  <header class="navbar" data-navbar>
+    <div class="container">
+      <div class="navbar-bar">
+        <a href="index.html" class="logo">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="11" class="logo-bg" />
+            <path d="M20 8C20 8 27 14.5 27 21.5C27 26.194 23.866 30 20 30C16.134 30 13 26.194 13 21.5C13 14.5 20 8 20 8Z" fill="url(#oakline-leaf)" />
+            <path d="M20 30V16" class="logo-stem" stroke-width="1.4" stroke-linecap="round" />
+            <defs>
+              <linearGradient id="oakline-leaf" x1="13" y1="8" x2="27" y2="30" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#75CFA9" /><stop offset="1" stop-color="#187A57" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="logo-word">Oakline <span>Digital</span></span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html" class="is-active">Portfolio</a>
+          <a href="process.html">Process</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="navbar-actions">
+          <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+            <svg class="icon"><use href="assets/icons/sprite.svg#icon-moon"></use></svg>
+          </button>
+          <a href="contact.html" class="btn btn-primary">
+            Free Consultation
+            <svg class="icon"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg>
+          </a>
+        </div>
+
+        <div class="navbar-actions-mobile">
+          <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode">
+            <svg class="icon"><use href="assets/icons/sprite.svg#icon-moon"></use></svg>
+          </button>
+          <button class="icon-btn" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+            <svg class="icon"><use href="assets/icons/sprite.svg#icon-menu"></use></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-menu" data-menu>
+      <div class="container">
+        <div class="mobile-menu-inner glass">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html" class="is-active">Portfolio</a>
+          <a href="process.html">Process</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+          <a href="contact.html" class="btn btn-primary btn-block">Request a Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="noise-grid tight"></div>
+      <div class="container">
+        <p class="reveal eyebrow">Our Work</p>
+        <h1 class="reveal">Websites designed for real businesses.</h1>
+        <p class="reveal">A sample of the industries and business types we love working with. Every project is designed from scratch around the business it represents. Once a project ships, its desktop and mobile screenshots drop into the matching device frame below.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="reveal portfolio-filters">
+          <button class="filter-btn is-active" data-filter="All">All</button>
+          <button class="filter-btn" data-filter="Restaurant">Restaurant</button>
+          <button class="filter-btn" data-filter="Contractor">Contractor</button>
+          <button class="filter-btn" data-filter="Dentist">Dentist</button>
+          <button class="filter-btn" data-filter="Landscaping">Landscaping</button>
+          <button class="filter-btn" data-filter="Roofing">Roofing</button>
+          <button class="filter-btn" data-filter="Law Firm">Law Firm</button>
+          <button class="filter-btn" data-filter="Auto Repair">Auto Repair</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="reveal portfolio-card is-shown" data-category="Restaurant">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#fb923c,#f43f5e)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/harvest-oak-desktop.jpg" alt="Harvest & Oak Restaurant desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#fb923c,#f43f5e)">
+                    <img class="device-shot" src="assets/img/portfolio/harvest-oak-mobile.jpg" alt="Harvest & Oak Restaurant mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Restaurant</p><p class="title">Harvest &amp; Oak Restaurant</p></div>
+          </div>
+
+          <div class="reveal portfolio-card is-shown" data-category="Contractor">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#f59e0b,#ca8a04)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/sterling-contracting-desktop.jpg" alt="Sterling Contracting Co. desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#f59e0b,#ca8a04)">
+                    <img class="device-shot" src="assets/img/portfolio/sterling-contracting-mobile.jpg" alt="Sterling Contracting Co. mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Contractor</p><p class="title">Sterling Contracting Co.</p></div>
+          </div>
+
+          <div class="reveal portfolio-card is-shown" data-category="Dentist">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#38bdf8,#3b82f6)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/brightside-dental-desktop.jpg" alt="Brightside Family Dental desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#38bdf8,#3b82f6)">
+                    <img class="device-shot" src="assets/img/portfolio/brightside-dental-mobile.jpg" alt="Brightside Family Dental mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Dentist</p><p class="title">Brightside Family Dental</p></div>
+          </div>
+
+          <div class="reveal portfolio-card is-shown" data-category="Landscaping">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#34d399,#16a34a)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/evergreen-landscaping-desktop.jpg" alt="Evergreen Landscaping desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#34d399,#16a34a)">
+                    <img class="device-shot" src="assets/img/portfolio/evergreen-landscaping-mobile.jpg" alt="Evergreen Landscaping mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Landscaping</p><p class="title">Evergreen Landscaping</p></div>
+          </div>
+
+          <div class="reveal portfolio-card is-shown" data-category="Roofing">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#64748b,#3f3f46)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/summit-roofing-desktop.jpg" alt="Summit Roofing Solutions desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#64748b,#3f3f46)">
+                    <img class="device-shot" src="assets/img/portfolio/summit-roofing-mobile.jpg" alt="Summit Roofing Solutions mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Roofing</p><p class="title">Summit Roofing Solutions</p></div>
+          </div>
+
+          <div class="reveal portfolio-card is-shown" data-category="Law Firm">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#6366f1,#7c3aed)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/whitmore-law-desktop.jpg" alt="Whitmore & Associates Law desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#6366f1,#7c3aed)">
+                    <img class="device-shot" src="assets/img/portfolio/whitmore-law-mobile.jpg" alt="Whitmore & Associates Law mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Law Firm</p><p class="title">Whitmore &amp; Associates Law</p></div>
+          </div>
+
+          <div class="reveal portfolio-card is-shown" data-category="Auto Repair">
+            <div class="device-stack">
+              <div class="laptop-frame">
+                <div class="laptop-screen device-frame" style="background-image:linear-gradient(135deg,#ef4444,#ea580c)">
+                  <div class="laptop-notch"></div>
+                  <img class="device-shot" src="assets/img/portfolio/precision-auto-desktop.jpg" alt="Precision Auto Repair desktop view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                  <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                </div>
+                <div class="laptop-base"></div>
+              </div>
+              <div class="phone-frame-sm">
+                <div class="phone-frame">
+                  <div class="phone-screen device-frame" style="background-image:linear-gradient(135deg,#ef4444,#ea580c)">
+                    <img class="device-shot" src="assets/img/portfolio/precision-auto-mobile.jpg" alt="Precision Auto Repair mobile view" loading="lazy" onerror="this.style.display='none';this.closest('.device-frame').classList.add('img-missing')" />
+                    <div class="placeholder-fill"><div class="placeholder-dots"><span></span><span></span><span></span></div><div class="placeholder-bars"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-meta"><p class="category">Auto Repair</p><p class="title">Precision Auto Repair</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="reveal cta-banner">
+          <h2>Want a website like these?</h2>
+          <p>Let's talk about your business and design something that fits it perfectly.</p>
+          <div class="btn-row">
+            <a href="contact.html" class="btn btn-primary btn-lg">Request a Free Consultation <svg class="icon"><use href="assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col-brand">
+          <a href="index.html" class="logo">
+            <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="11" class="logo-bg" />
+              <path d="M20 8C20 8 27 14.5 27 21.5C27 26.194 23.866 30 20 30C16.134 30 13 26.194 13 21.5C13 14.5 20 8 20 8Z" fill="url(#oakline-leaf-footer)" />
+              <path d="M20 30V16" class="logo-stem" stroke-width="1.4" stroke-linecap="round" />
+              <defs>
+                <linearGradient id="oakline-leaf-footer" x1="13" y1="8" x2="27" y2="30" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#75CFA9" /><stop offset="1" stop-color="#187A57" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="logo-word">Oakline <span>Digital</span></span>
+          </a>
+          <p class="footer-tagline">Helping local businesses grow online with fast, modern, professional websites.</p>
+          <div class="footer-socials">
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"><svg class="icon" style="width:16px;height:16px"><use href="assets/icons/sprite.svg#icon-facebook"></use></svg></a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"><svg class="icon" style="width:16px;height:16px"><use href="assets/icons/sprite.svg#icon-instagram"></use></svg></a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg class="icon" style="width:16px;height:16px"><use href="assets/icons/sprite.svg#icon-linkedin"></use></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Navigation</h3>
+          <ul class="footer-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="process.html">Process</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Services</h3>
+          <ul class="footer-list">
+            <li><a href="services.html">Website Design &amp; Development</a></li>
+            <li><a href="services.html">Website Redesign</a></li>
+            <li><a href="services.html">Website Maintenance</a></li>
+            <li><a href="services.html">Website Speed Optimization</a></li>
+            <li><a href="services.html">E-Commerce Websites</a></li>
+            <li><a href="services.html">Portfolio Websites</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Contact</h3>
+          <ul class="footer-contact">
+            <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-phone"></use></svg><a href="tel:+15555550123">(555) 555-0123</a></li>
+            <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-mail"></use></svg><a href="mailto:hello@oaklinedigital.com">hello@oaklinedigital.com</a></li>
+            <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-map-pin"></use></svg><span>Serving businesses nationwide</span></li>
+            <li><svg class="icon"><use href="assets/icons/sprite.svg#icon-clock"></use></svg><span>Mon–Fri, 9am–5pm</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span data-year></span> Oakline Digital. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
