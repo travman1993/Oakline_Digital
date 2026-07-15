@@ -15,19 +15,13 @@ Used for link previews when the site is shared on iMessage, Slack, X, Facebook, 
 
 > Design a clean, modern Open Graph social-share banner, exactly 1200x630px, for a web design agency called "Oakline Digital." Near-black background (#0B0F0D) with a soft emerald-green gradient glow (#187A57 to #75CFA9) in one corner. Center-left: the wordmark "Oakline Digital" in a bold modern geometric sans-serif (like Manrope), white text, with the word "Digital" tinted emerald green. Below it, a smaller tagline in light gray: "Helping Local Businesses Grow Online." To the right, show a simple abstract rounded-square app-icon mark containing a minimal oak-leaf silhouette with an emerald gradient fill. Leave generous padding on all sides — no text closer than 80px to any edge. Flat, minimal, professional, no stock-photo people, no clutter.
 
-## 2. iOS home-screen icon / apple-touch-icon (180×180)
+## 2. Home-screen icon — iOS + Android (180×180)
 
-Used for `apple-touch-icon.png`. iOS automatically applies its own rounded-square mask, so **do not pre-round the corners** — export a full-bleed square.
+Used for `apple-touch-icon.png`, and reused as-is for Android/PWA via `manifest.webmanifest` (no separate Android export needed). Both platforms apply their own mask (iOS rounds the square, Android may crop to a circle/squircle), so **do not pre-round the corners** and keep the leaf mark comfortably centered with a bit of breathing room near the edges so it isn't clipped either way.
 
-> Design a full-bleed square app icon, exactly 180x180px, no rounded corners or padding baked in (the OS will mask it). Solid dark background using color #123F31 (deep forest green) filling the entire square edge-to-edge. Centered: a single abstract oak-leaf shape rendered as a smooth gradient from #75CFA9 (light mint) to #187A57 (deep emerald), simple and bold enough to read clearly at 40x40px. No text, no wordmark, no drop shadows, no outer glow — just the leaf mark on the solid background, flat vector style.
+> Design a full-bleed square app icon, exactly 180x180px, no rounded corners or padding baked in (the OS applies its own mask). Solid dark background using color #123F31 (deep forest green) filling the entire square edge-to-edge. Center a single abstract oak-leaf shape, rendered as a smooth gradient from #75CFA9 (light mint) to #187A57 (deep emerald), sized so all of its detail sits within the middle ~80% of the canvas (leave a small safe-zone margin on all sides in case a launcher crops it into a circle). Simple and bold enough to read clearly at 40x40px. No text, no wordmark, no drop shadows, no outer glow — flat vector style.
 
-## 3. Android / PWA maskable icons (512×512 and 192×192)
-
-Used in `manifest.webmanifest`. Android's "maskable" adaptive-icon system can crop up to the outer ~20% of the image into a circle, squircle, or square depending on the device launcher, so keep the important art inside the center **safe zone** (roughly the middle 80% / an 80px margin on a 512px canvas).
-
-> Design a maskable Android app icon, exactly 512x512px (I also need a 192x192px version of the same design). Fill the entire canvas edge-to-edge with a solid deep forest-green background, #123F31, no transparency. Center the same oak-leaf mark (gradient #75CFA9 to #187A57) so that all of its detail sits within the middle 80% of the canvas (leave roughly a 50px safe-zone margin on all sides, since Android launchers may crop a circular or squircle mask over the outer edge). No text. Flat vector style, no shadows.
-
-## 4. General social profile / post graphic (1080×1080)
+## 3. General social profile / post graphic (1080×1080)
 
 A square graphic for use as a profile picture or a standalone social post (Instagram, Facebook Business Page, LinkedIn company page).
 
@@ -42,8 +36,6 @@ Once generated, drop the exports into the repo root (overwriting the current pla
 | File | Purpose | Size |
 | --- | --- | --- |
 | `og-image.png` | Social share preview | 1200×630 |
-| `apple-touch-icon.png` | iOS home-screen icon | 180×180 |
+| `apple-touch-icon.png` | iOS + Android home-screen icon (via `manifest.webmanifest`) | 180×180 |
 | `favicon.ico` | Browser tab icon | 32×32 (multi-size .ico) |
 | `logo.svg` | Header/footer logo, PWA icon | vector |
-
-Android maskable icons aren't wired into `manifest.webmanifest` yet by filename — if you generate the 512×512 and 192×192 PNGs, save them as `icon-512.png` and `icon-192.png` in the repo root and add matching entries to the `icons` array in `manifest.webmanifest` (copy the existing `apple-touch-icon.png` entry and add `"purpose": "maskable"`).
