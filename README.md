@@ -50,6 +50,21 @@ assets/img/portfolio/<project-slug>-mobile.jpg    (recommended ~390x844)
 
 The current slugs (matching `portfolio.html` and the homepage preview) are: `harvest-oak`, `sterling-contracting`, `brightside-dental`, `evergreen-landscaping`, `summit-roofing`, `whitmore-law`, `precision-auto`. Until real screenshots exist at those paths, each device frame shows an abstract gradient placeholder automatically — no markup changes needed once you add the real files.
 
+## Business photography examples
+
+The "Business Photography" add-on section on `pricing.html` shows six example photo tiles (Team, Staff, Building, Products, Services, Interior). Drop real photos into `assets/img/photography/` using these exact filenames:
+
+```
+assets/img/photography/team.jpg
+assets/img/photography/staff.jpg
+assets/img/photography/building.jpg
+assets/img/photography/products.jpg
+assets/img/photography/services.jpg
+assets/img/photography/interior.jpg
+```
+
+Recommended ~800x800 (square). Same as the portfolio shots — each tile falls back to a gradient placeholder until a file exists at its path, so there's nothing else to wire up.
+
 See `IMAGE_PROMPTS.md` for AI prompts to generate the OG/share image and iOS/Android home-screen icons.
 
 ## Running locally
