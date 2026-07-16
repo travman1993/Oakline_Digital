@@ -10,7 +10,7 @@
       var isDark = document.documentElement.classList.contains('dark');
       buttons.forEach(function (btn) {
         var use = btn.querySelector('use');
-        if (use) use.setAttribute('href', 'assets/icons/sprite.svg#icon-' + (isDark ? 'sun' : 'moon'));
+        if (use) use.setAttribute('href', '/assets/icons/sprite.svg#icon-' + (isDark ? 'sun' : 'moon'));
       });
     }
 
@@ -37,7 +37,7 @@
       toggle.setAttribute('aria-expanded', String(open));
       document.body.classList.toggle('menu-open', open);
       var use = toggle.querySelector('use');
-      if (use) use.setAttribute('href', 'assets/icons/sprite.svg#icon-' + (open ? 'x' : 'menu'));
+      if (use) use.setAttribute('href', '/assets/icons/sprite.svg#icon-' + (open ? 'x' : 'menu'));
     }
 
     toggle.addEventListener('click', function () {

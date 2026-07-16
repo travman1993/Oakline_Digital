@@ -8,8 +8,33 @@ const path = require('path');
 const ROOT = __dirname;
 const SRC = path.join(ROOT, 'src');
 
-const PAGES = ['index', 'services', 'portfolio', 'process', 'pricing', 'faq', 'contact', 'privacy', 'terms'];
-const NAV_SLUGS = ['index', 'services', 'portfolio', 'process', 'pricing', 'faq', 'contact'];
+// name: path (relative to src/pages/ and to the repo root) shared by <name>.head.html,
+// <name>.content.html, and the output <name>.html — nested names create nested output dirs.
+// active: which nav link should get is-active (matches an ACTIVE_SLUGS entry below).
+const PAGES = [
+  { name: 'index', active: 'index' },
+  { name: 'services', active: 'services' },
+  { name: 'portfolio', active: 'portfolio' },
+  { name: 'process', active: 'process' },
+  { name: 'pricing', active: 'pricing' },
+  { name: 'faq', active: 'faq' },
+  { name: 'contact', active: 'contact' },
+  { name: 'privacy', active: 'privacy' },
+  { name: 'terms', active: 'terms' },
+  { name: 'studio/index', active: 'studio' },
+  { name: 'studio/goodnight-dad', active: 'studio' },
+  { name: 'studio/journal/goodnight-dad', active: 'studio' },
+  { name: 'studio/blog/index', active: 'studio' },
+  { name: 'sports/index', active: 'sports' },
+  { name: 'sports/nfl/index', active: 'sports' },
+  { name: 'sports/detroit-lions/index', active: 'sports' },
+  { name: 'sports/michigan-football/index', active: 'sports' },
+  { name: 'sports/draft/index', active: 'sports' },
+  { name: 'sports/trades/index', active: 'sports' },
+  { name: 'sports/contracts/index', active: 'sports' },
+  { name: 'sports/article-template', active: 'sports' },
+];
+const ACTIVE_SLUGS = ['index', 'services', 'portfolio', 'studio', 'sports', 'process', 'pricing', 'faq', 'contact'];
 
 function read(relPath) {
   return fs.readFileSync(path.join(SRC, relPath), 'utf8');
@@ -26,18 +51,18 @@ const partial = {
   bodyBottom: read('partials/body-bottom.html'),
 };
 
-function renderNav(currentPage) {
+function renderNav(activeSlug) {
   let nav = partial.navTemplate;
-  for (const slug of NAV_SLUGS) {
+  for (const slug of ACTIVE_SLUGS) {
     const token = `{{ACTIVE:${slug}}}`;
-    nav = nav.split(token).join(slug === currentPage ? ' class="is-active"' : '');
+    nav = nav.split(token).join(slug === activeSlug ? ' class="is-active"' : '');
   }
   return nav;
 }
 
 for (const page of PAGES) {
-  const head = read(`pages/${page}.head.html`);
-  const content = read(`pages/${page}.content.html`);
+  const head = read(`pages/${page.name}.head.html`);
+  const content = read(`pages/${page.name}.content.html`);
 
   const html =
     partial.headTop +
@@ -52,7 +77,7 @@ for (const page of PAGES) {
     '\n</head>\n' +
     partial.bodyTop +
     '\n' +
-    renderNav(page) +
+    renderNav(page.active) +
     '\n' +
     content +
     '\n' +
@@ -60,6 +85,8 @@ for (const page of PAGES) {
     '\n' +
     partial.bodyBottom;
 
-  fs.writeFileSync(path.join(ROOT, `${page}.html`), html);
-  console.log(`built ${page}.html`);
+  const outPath = path.join(ROOT, `${page.name}.html`);
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
+  fs.writeFileSync(outPath, html);
+  console.log(`built ${page.name}.html`);
 }
