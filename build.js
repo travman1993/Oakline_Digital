@@ -23,7 +23,6 @@ const PAGES = [
   { name: 'terms', active: 'terms' },
   { name: 'studio/index', active: 'studio' },
   { name: 'studio/goodnight-dad', active: 'studio' },
-  { name: 'studio/journal/goodnight-dad', active: 'studio' },
   { name: 'studio/blog/index', active: 'studio' },
   { name: 'sports/index', active: 'sports' },
   { name: 'sports/nfl/index', active: 'sports' },
@@ -32,7 +31,6 @@ const PAGES = [
   { name: 'sports/draft/index', active: 'sports' },
   { name: 'sports/trades/index', active: 'sports' },
   { name: 'sports/contracts/index', active: 'sports' },
-  { name: 'sports/article-template', active: 'sports' },
 ];
 const ACTIVE_SLUGS = ['index', 'services', 'portfolio', 'studio', 'sports', 'process', 'pricing', 'faq', 'contact'];
 
