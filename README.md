@@ -1,6 +1,6 @@
-# Oakline Digital
+# Black Maple Digital
 
-Marketing website for Oakline Digital — a web design agency helping local businesses grow online.
+Marketing website for Black Maple Digital — a web design agency helping local businesses grow online.
 
 Plain **HTML + CSS + JavaScript**. No framework, no build step, no `npm install`. Every page is a hand-written `.html` file at the repo root that you can open directly in a browser or push straight to GitHub Pages.
 
@@ -95,11 +95,11 @@ Since there's nothing to build, you can skip Actions entirely:
 
 ### Custom domain
 
-1. Add a `CNAME` file at the repo root containing your domain (e.g. `oaklinedigital.com`).
+1. Add a `CNAME` file at the repo root containing your domain (e.g. `blackmaple.co`).
 2. Point your domain's DNS at GitHub Pages (A/AAAA records to GitHub's IPs, or a `CNAME` record to `<username>.github.io` for a subdomain).
 3. Set the custom domain in the repo's **Pages** settings.
 
-If instead you're hosting at the default project-page URL (`username.github.io/repo-name/`), no changes are needed — every link in the site uses relative paths (`services.html`, `assets/css/style.css`, etc.), so it works at any subpath automatically. The only absolute URLs are the `canonical`/`og:url` meta tags in each page's `<head>`, which are placeholder (`https://oaklinedigital.com/...`) — update those (find-and-replace) once you know your real domain.
+If instead you're hosting at the default project-page URL (`username.github.io/repo-name/`), no changes are needed — every link in the site uses relative paths (`services.html`, `assets/css/style.css`, etc.), so it works at any subpath automatically. The only absolute URLs are the `canonical`/`og:url` meta tags in each page's `<head>`, which are placeholder (`https://blackmaple.co/...`) — update those (find-and-replace) once you know your real domain.
 
 ## Notes
 

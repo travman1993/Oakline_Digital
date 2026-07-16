@@ -1,4 +1,4 @@
-/* Oakline Digital — shared site behavior (no framework, no build step) */
+/* Black Maple Digital — shared site behavior (no framework, no build step) */
 (function () {
   'use strict';
 
@@ -20,7 +20,7 @@
       btn.addEventListener('click', function () {
         var isDark = document.documentElement.classList.toggle('dark');
         try {
-          localStorage.setItem('oakline-theme', isDark ? 'dark' : 'light');
+          localStorage.setItem('blackmaple-theme', isDark ? 'dark' : 'light');
         } catch (e) {}
         paintButtons();
       });
@@ -109,7 +109,7 @@
     var form = document.querySelector('[data-contact-form]');
     if (!form) return;
 
-    var BUSINESS_EMAIL = 'support@oaklinedigital.com';
+    var BUSINESS_EMAIL = 'support@blackmaple.co';
     var BUSINESS_PHONE = '+14046494654';
 
     function field(name) {
