@@ -21,12 +21,15 @@ src/
     <page>.head.html      Per-page <title>/meta/OG/canonical block
     <page>.content.html   Per-page <main>...</main> content
     studio/                Studio section source (see "Adding new content" below)
-    sports/                 Sports section source (same pattern)
+    sports/                 Sports section source — a blog index (index.content.html)
+                             plus one .head.html/.content.html pair per article, all flat
+                             under sports/. _article-template.* is the reusable starting
+                             point for new articles (not built — not registered in build.js).
 
 build.js               Reads src/ and writes index.html, services.html, etc.
                         (registered in build.js's PAGES array) to the repo root,
                         including nested output like studio/index.html and
-                        sports/nfl/index.html. Run `node build.js` after any src/ edit.
+                        sports/nfl-week-1-predictions.html. Run `node build.js` after any src/ edit.
 
 index.html, services.html, portfolio.html, process.html,     GENERATED — do not
 pricing.html, faq.html, contact.html, privacy.html, terms.html,  hand-edit these,
@@ -76,22 +79,24 @@ All shared partials (`nav.html`, `footer.html`, `head-assets.html`, `body-bottom
 4. Update the film's card in `src/pages/studio/index.content.html` to link to it instead of showing "Coming Soon".
 5. Run `node build.js`.
 
-### A Studio Blog post
+### A Sports article
 
-1. Copy `src/pages/sports/article-template.head.html` + `.content.html` → `src/pages/studio/blog/<post-slug>.head.html` + `.content.html` (closest existing layout — hero + body).
-2. Register it in `build.js`: `{ name: 'studio/blog/<post-slug>', active: 'studio' }`.
-3. Set `<meta name="robots">` to `index, follow`.
-4. Add a real post card to `src/pages/studio/blog/index.content.html`, replacing the empty-state card.
-5. Run `node build.js`.
+The Sports section is a blog: `sports/index.html` is an archive page (hero + featured card +
+article-card grid), and every article is its own standalone page at `sports/<article-slug>.html`
+— flat, no category subfolders.
 
-### A Sports article under a category
-
-1. Copy `src/pages/sports/article-template.head.html` + `.content.html` → `src/pages/sports/<category>/<article-slug>.head.html` + `.content.html`. Categories: `nfl`, `detroit-lions`, `michigan-football`, `draft`, `trades`, `contracts`.
-2. Set `<meta name="robots">` to `index, follow` (the template defaults to `noindex, nofollow`).
-3. Register it in `build.js`: `{ name: 'sports/<category>/<article-slug>', active: 'sports' }`.
-4. Add a real article card to `src/pages/sports/<category>/index.content.html`, replacing its empty state, and flip **that category page's** robots meta to `index, follow` too now that it has content.
-5. Optionally add a card to `src/pages/sports/index.content.html`'s "Latest Stories" section.
-6. Run `node build.js`.
+1. Copy `src/pages/sports/_article-template.head.html` + `_article-template.content.html` →
+   `src/pages/sports/<article-slug>.head.html` + `.content.html`.
+2. Fill in every `[PLACEHOLDER]` — title, meta description, canonical/OG/Twitter URLs, the
+   `article:published_time`/Article JSON-LD dates, category badge, hero image, and body copy.
+3. Register it in `build.js`'s `PAGES` array: `{ name: 'sports/<article-slug>', active: 'sports' }`.
+4. Add a new `.article-card` to the top of the "Recent Articles" grid in
+   `src/pages/sports/index.content.html` (newest first). If it should be the new featured
+   article, swap it into the featured-article block above the grid too.
+5. Update the **previous** newest article's "Next Article" link (in its `.article-nav`) to point
+   at the new article, and set the new article's "Previous Article" link back to it.
+6. Add its URL to `sitemap.xml`.
+7. Run `node build.js`.
 
 Every workflow above ends with `node build.js`, then committing both the `src/` change and the regenerated output.
 

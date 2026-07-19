@@ -3,42 +3,83 @@
       <div class="noise-grid tight"></div>
       <div class="container">
         <p class="reveal eyebrow">Black Maple Sports</p>
-        <h1 class="reveal">Independent football coverage.</h1>
-        <p class="reveal">Focused on the Detroit Lions, Michigan Football, and the National Football League. News &middot; Trades &middot; Contracts &middot; Draft Coverage.</p>
-        <div class="reveal btn-row" style="justify-content:center;margin-top:1.5rem">
-          <a href="#latest" class="btn btn-primary btn-lg">Read Latest Stories <svg class="icon"><use href="/assets/icons/sprite.svg#icon-arrow-right"></use></svg></a>
-        </div>
+        <h1 class="reveal">Sports</h1>
+        <p class="reveal">Independent football coverage focused on the Detroit Lions, Michigan Football, and the National Football League. News &middot; Trades &middot; Contracts &middot; Draft Coverage.</p>
       </div>
     </section>
 
-    <section id="latest" class="section-tight">
-      <div class="container" style="max-width:42rem">
-        <!-- Newest story goes here. Copy one of the article blocks below, move it to
-             the top, then change the date, headline, and body. -->
-        <article class="reveal card-surface rounded-3xl" style="padding:2rem">
-          <p class="eyebrow" style="margin-bottom:0.5rem">July 18, 2026 &middot; 6 Minute Read</p>
-          <h2 style="font-size:1.375rem">Headline Goes Here</h2>
-
-          <!-- Optional media — uncomment ONE block, set the real path, delete the rest. -->
-          <div class="blog-media">
-            <img src="/assets/img/sports/example.jpg" alt="Describe the photo" loading="lazy" />
+    <!-- Featured article — swap this to whichever article you want pinned at the top
+         (usually the newest). Update the image, category, date, title, excerpt, and href. -->
+    <section class="section-tight">
+      <div class="container">
+        <a class="reveal card-surface rounded-3xl featured-article" href="/sports/nfl-week-1-predictions.html">
+          <div class="article-card-media">
+            <img src="/assets/img/sports/nfl-week-1-predictions.jpg" alt="NFL Week 1 Predictions" loading="lazy" onerror="this.style.display='none';this.closest('.article-card-media').classList.add('img-missing')" />
+            <div class="media-fallback"><svg class="icon"><use href="/assets/icons/sprite.svg#icon-camera"></use></svg></div>
           </div>
-          <div class="blog-media">
-            <video controls poster="/assets/img/sports/example-poster.jpg">
-              <source src="/assets/video/sports/example.mp4" type="video/mp4" />
-            </video>
+          <div class="article-card-body">
+            <div class="article-card-meta">
+              <span class="badge">NFL</span>
+              <span>September 3, 2026</span>
+              <span>&middot;</span>
+              <span>7 Minute Read</span>
+            </div>
+            <h3>NFL Week 1 Predictions</h3>
+            <p>Placeholder excerpt — picks against the spread for every Week 1 matchup, plus the games most likely to surprise. Replace with the real preview before publishing.</p>
+            <span class="service-link">Read Article <svg class="icon" style="width:14px;height:14px"><use href="/assets/icons/sprite.svg#icon-arrow-right"></use></svg></span>
           </div>
-          <audio controls preload="none" style="width:100%;margin:1rem 0" src="/assets/audio/sports/example.mp3"></audio>
-          
+        </a>
+      </div>
+    </section>
 
-          <p style="margin-top:0.75rem;color:var(--muted);line-height:1.7">
-            Placeholder story — replace with the real article. Opening paragraph sets up the
-            story, the stakes, and why it matters right now.
-          </p>
-          <p style="margin-top:0.75rem;color:var(--muted);line-height:1.7">
-            Second paragraph — add quotes, stats, or more detail as needed.
-          </p>
-        </article>
+    <section id="latest" class="section-tight border-t">
+      <div class="container">
+        <div class="section-heading align-left">
+          <h2>Recent Articles</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style="margin-top:2rem" data-article-grid>
+          <!-- New articles go at the TOP of this grid (reverse-chronological, newest first).
+               Copy one card, update the image/category/date/title/excerpt/href, done. -->
+          <a class="reveal card-surface rounded-3xl article-card" href="/sports/michigan-fall-camp-update.html">
+            <div class="article-card-media">
+              <img src="/assets/img/sports/michigan-fall-camp-update.jpg" alt="Michigan Fall Camp Update" loading="lazy" onerror="this.style.display='none';this.closest('.article-card-media').classList.add('img-missing')" />
+              <div class="media-fallback"><svg class="icon"><use href="/assets/icons/sprite.svg#icon-camera"></use></svg></div>
+            </div>
+            <div class="article-card-body">
+              <div class="article-card-meta">
+                <span class="badge">Michigan Football</span>
+                <span>Aug 10, 2026</span>
+              </div>
+              <h3>Michigan Fall Camp Update</h3>
+              <p>Placeholder excerpt — a roundup of position battles and camp storylines out of Ann Arbor ahead of the season opener.</p>
+              <span class="service-link">Read Article <svg class="icon" style="width:14px;height:14px"><use href="/assets/icons/sprite.svg#icon-arrow-right"></use></svg></span>
+            </div>
+          </a>
+
+          <a class="reveal card-surface rounded-3xl article-card" href="/sports/lions-training-camp-day-3.html">
+            <div class="article-card-media">
+              <img src="/assets/img/sports/lions-training-camp-day-3.jpg" alt="Lions Training Camp Day 3" loading="lazy" onerror="this.style.display='none';this.closest('.article-card-media').classList.add('img-missing')" />
+              <div class="media-fallback"><svg class="icon"><use href="/assets/icons/sprite.svg#icon-camera"></use></svg></div>
+            </div>
+            <div class="article-card-body">
+              <div class="article-card-meta">
+                <span class="badge">Detroit Lions</span>
+                <span>Jul 28, 2026</span>
+              </div>
+              <h3>Lions Training Camp Day 3</h3>
+              <p>Placeholder excerpt — day three notes from Allen Park: who stood out, who's working back from injury, and what to watch heading into preseason.</p>
+              <span class="service-link">Read Article <svg class="icon" style="width:14px;height:14px"><use href="/assets/icons/sprite.svg#icon-arrow-right"></use></svg></span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Older Articles continue in the same grid above — there's no separate archive yet.
+             Once this list gets long, wire this button up to real pagination or a "Load More"
+             handler that reveals additional article-card blocks. -->
+        <div class="reveal" style="margin-top:2.5rem;text-align:center">
+          <button type="button" class="btn btn-secondary" disabled>Load More Articles</button>
+        </div>
       </div>
     </section>
 

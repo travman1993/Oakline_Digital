@@ -1,0 +1,98 @@
+<!--
+  SPORTS ARTICLE TEMPLATE — content. See _article-template.head.html for the full
+  publishing checklist. Replace every [PLACEHOLDER] below; delete these comments once done.
+-->
+  <main>
+    <article>
+      <section class="page-header">
+        <div class="noise-grid tight"></div>
+        <div class="container">
+          <p class="reveal eyebrow"><a href="/sports/index.html">&larr; Sports</a></p>
+          <span class="reveal badge">[CATEGORY, e.g. Detroit Lions]</span>
+          <h1 class="reveal" style="margin-top:1rem">[ARTICLE TITLE]</h1>
+          <p class="reveal article-meta-row">
+            <span>[Month DD, YYYY]</span>
+            <span class="dot">&middot;</span>
+            <span>[N] Minute Read</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="section-tight">
+        <div class="container">
+          <div class="reveal article-hero-media">
+            <img src="/assets/img/sports/[ARTICLE-SLUG].jpg" alt="[DESCRIBE THE PHOTO]" loading="lazy" onerror="this.style.display='none';this.closest('.article-hero-media').classList.add('img-missing')" />
+            <div class="media-fallback"><svg class="icon"><use href="/assets/icons/sprite.svg#icon-camera"></use></svg></div>
+          </div>
+
+          <div class="reveal article-body" style="margin-top:2.5rem">
+            <p>
+              [OPENING PARAGRAPH — set up the story, the stakes, and why it matters right now.]
+            </p>
+            <h2>[OPTIONAL SUBHEADING]</h2>
+            <p>
+              [BODY PARAGRAPH — add quotes, stats, or more detail as needed. Use plain
+              paragraphs, &lt;h2&gt;/&lt;h3&gt; subheadings, &lt;ul&gt;/&lt;ol&gt; lists, and
+              &lt;blockquote&gt; as needed — .article-body styles all of them.]
+            </p>
+          </div>
+
+          <div class="reveal share-row" style="margin-top:2.5rem">
+            <a class="icon-btn" target="_blank" rel="noopener" aria-label="Share on X"
+               href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fblackmaple.co%2Fsports%2F[ARTICLE-SLUG].html&amp;text=[ARTICLE%20TITLE%2C%20URL-ENCODED]">
+              <svg class="icon"><use href="/assets/icons/sprite.svg#icon-x"></use></svg>
+            </a>
+            <a class="icon-btn" target="_blank" rel="noopener" aria-label="Share on Facebook"
+               href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblackmaple.co%2Fsports%2F[ARTICLE-SLUG].html">
+              <svg class="icon"><use href="/assets/icons/sprite.svg#icon-facebook"></use></svg>
+            </a>
+            <a class="icon-btn" target="_blank" rel="noopener" aria-label="Share on LinkedIn"
+               href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fblackmaple.co%2Fsports%2F[ARTICLE-SLUG].html">
+              <svg class="icon"><use href="/assets/icons/sprite.svg#icon-linkedin"></use></svg>
+            </a>
+            <button type="button" class="icon-btn" aria-label="Copy link" data-copy-link="https://blackmaple.co/sports/[ARTICLE-SLUG].html">
+              <svg class="icon"><use href="/assets/icons/sprite.svg#icon-share"></use></svg>
+            </button>
+            <span class="share-copy-feedback" data-copy-feedback>Link copied</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight border-t">
+        <div class="container" style="max-width:42rem">
+          <div class="reveal article-nav">
+            <!-- Previous = the article published just before this one. Omit the <a> (use the
+                 .article-nav-empty div below instead) if this is the oldest article. -->
+            <a class="card-surface article-nav-link" href="/sports/[PREVIOUS-ARTICLE-SLUG].html">
+              <span class="eyebrow">&larr; Previous Article</span>
+              <span>[PREVIOUS ARTICLE TITLE]</span>
+            </a>
+            <!-- Next = the article published just after this one. Omit if this is the newest. -->
+            <a class="card-surface article-nav-link next" href="/sports/[NEXT-ARTICLE-SLUG].html">
+              <span class="eyebrow">Next Article &rarr;</span>
+              <span>[NEXT ARTICLE TITLE]</span>
+            </a>
+            <!-- <div class="card-surface article-nav-empty"></div> -->
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight border-t">
+        <div class="container">
+          <div class="section-heading align-left">
+            <h2>Related Articles</h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style="margin-top:2rem">
+            <!-- Copy an .article-card block from src/pages/sports/index.content.html for each
+                 related article (2-3 is plenty). -->
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight border-t">
+        <div class="container" style="text-align:center">
+          <a href="/sports/index.html" class="reveal btn btn-secondary">&larr; Back to Sports</a>
+        </div>
+      </section>
+    </article>
+  </main>

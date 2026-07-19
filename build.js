@@ -23,8 +23,14 @@ const PAGES = [
   { name: 'terms', active: 'terms' },
   { name: 'studio/index', active: 'studio' },
   { name: 'studio/goodnight-dad', active: 'studio' },
-  { name: 'studio/blog/index', active: 'studio' },
   { name: 'sports/index', active: 'sports' },
+  // Sports articles — newest first is just convention here, order doesn't affect the build.
+  // To publish a new one: duplicate src/pages/sports/_article-template.{head,content}.html,
+  // fill in the SEO/content, register it below, add a card to sports/index.content.html,
+  // and add the URL to sitemap.xml. See README.md for the full workflow.
+  { name: 'sports/nfl-week-1-predictions', active: 'sports' },
+  { name: 'sports/michigan-fall-camp-update', active: 'sports' },
+  { name: 'sports/lions-training-camp-day-3', active: 'sports' },
 ];
 const ACTIVE_SLUGS = ['index', 'services', 'portfolio', 'studio', 'sports', 'process', 'pricing', 'faq', 'contact'];
 

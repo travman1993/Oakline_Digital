@@ -43,6 +43,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://blackmaple.co/sports/index.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blackmaple.co/sports/nfl-week-1-predictions.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://blackmaple.co/sports/michigan-fall-camp-update.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://blackmaple.co/sports/lions-training-camp-day-3.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://blackmaple.co/privacy.html</loc>
     <lastmod>2026-07-15</lastmod>
     <changefreq>yearly</changefreq>

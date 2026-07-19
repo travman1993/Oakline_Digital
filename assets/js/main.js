@@ -169,6 +169,28 @@
     });
   }
 
+  function initCopyLink() {
+    var buttons = document.querySelectorAll('[data-copy-link]');
+    if (!buttons.length) return;
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var url = btn.getAttribute('data-copy-link');
+        var feedback = btn.parentElement.querySelector('[data-copy-feedback]');
+
+        function showFeedback() {
+          if (!feedback) return;
+          feedback.classList.add('is-visible');
+          setTimeout(function () { feedback.classList.remove('is-visible'); }, 2000);
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(showFeedback).catch(function () {});
+        }
+      });
+    });
+  }
+
   function initFooterYear() {
     document.querySelectorAll('[data-year]').forEach(function (el) {
       el.textContent = new Date().getFullYear();
@@ -183,6 +205,7 @@
     initPortfolioFilter();
     initContactForm();
     initAudioToggle();
+    initCopyLink();
     initFooterYear();
   });
 })();
