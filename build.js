@@ -7,10 +7,14 @@ const path = require('path');
 
 const ROOT = __dirname;
 const SRC = path.join(ROOT, 'src');
+const SPORTS_DIR = path.join(SRC, 'pages', 'sports');
+const CONTENT_MARKER = '<!-- CONTENT -->';
 
-// name: path (relative to src/pages/ and to the repo root) shared by <name>.head.html,
-// <name>.content.html, and the output <name>.html — nested names create nested output dirs.
+// name: path (relative to src/pages/ and to the repo root) of a single <name>.html source file
+// — nested names create nested output dirs. Each source file holds the <head> block, then a
+// lone `<!-- CONTENT -->` marker line, then the <main> body.
 // active: which nav link should get is-active (matches an ACTIVE_SLUGS entry below).
+// Sports articles are NOT listed here — see the auto-discovery loop below.
 const PAGES = [
   { name: 'index', active: 'index' },
   { name: 'services', active: 'services' },
@@ -24,13 +28,6 @@ const PAGES = [
   { name: 'studio/index', active: 'studio' },
   { name: 'studio/goodnight-dad', active: 'studio' },
   { name: 'sports/index', active: 'sports' },
-  // Sports articles — newest first is just convention here, order doesn't affect the build.
-  // To publish a new one: duplicate src/pages/sports/_article-template.{head,content}.html,
-  // fill in the SEO/content, register it below, add a card to sports/index.content.html,
-  // and add the URL to sitemap.xml. See README.md for the full workflow.
-  { name: 'sports/nfl-week-1-predictions', active: 'sports' },
-  { name: 'sports/michigan-fall-camp-update', active: 'sports' },
-  { name: 'sports/lions-training-camp-day-3', active: 'sports' },
 ];
 const ACTIVE_SLUGS = ['index', 'services', 'portfolio', 'studio', 'sports', 'process', 'pricing', 'faq', 'contact'];
 
@@ -58,10 +55,21 @@ function renderNav(activeSlug) {
   return nav;
 }
 
-for (const page of PAGES) {
-  const head = read(`pages/${page.name}.head.html`);
-  const content = read(`pages/${page.name}.content.html`);
+// Splits a single page source file into its <head> block and <main> content on the
+// `<!-- CONTENT -->` marker line.
+function splitPage(absPath, displayPath) {
+  const raw = fs.readFileSync(absPath, 'utf8');
+  const markerIndex = raw.indexOf(CONTENT_MARKER);
+  if (markerIndex === -1) {
+    throw new Error(`${displayPath} is missing the ${CONTENT_MARKER} marker separating head from content`);
+  }
+  return {
+    head: raw.slice(0, markerIndex).trim(),
+    content: raw.slice(markerIndex + CONTENT_MARKER.length),
+  };
+}
 
+function buildPage(name, active, head, content) {
   const html =
     partial.headTop +
     '\n' +
@@ -75,7 +83,7 @@ for (const page of PAGES) {
     '\n</head>\n' +
     partial.bodyTop +
     '\n' +
-    renderNav(page.active) +
+    renderNav(active) +
     '\n' +
     content +
     '\n' +
@@ -83,8 +91,27 @@ for (const page of PAGES) {
     '\n' +
     partial.bodyBottom;
 
-  const outPath = path.join(ROOT, `${page.name}.html`);
+  const outPath = path.join(ROOT, `${name}.html`);
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, html);
-  console.log(`built ${page.name}.html`);
+  console.log(`built ${name}.html`);
+}
+
+for (const page of PAGES) {
+  const { head, content } = splitPage(path.join(SRC, 'pages', `${page.name}.html`), `src/pages/${page.name}.html`);
+  buildPage(page.name, page.active, head, content);
+}
+
+// Sports articles — one flat file per article in src/pages/sports/<slug>.html, auto-discovered
+// (no PAGES entry needed). _article-template.html (the copy-and-edit starting point) and
+// index.html (registered above, since it's the archive page) are skipped.
+// See README.md for the publishing workflow.
+const articleFiles = fs
+  .readdirSync(SPORTS_DIR)
+  .filter((f) => f.endsWith('.html') && f !== 'index.html' && !f.startsWith('_'));
+
+for (const file of articleFiles) {
+  const slug = file.replace(/\.html$/, '');
+  const { head, content } = splitPage(path.join(SPORTS_DIR, file), `src/pages/sports/${file}`);
+  buildPage(`sports/${slug}`, 'sports', head, content);
 }

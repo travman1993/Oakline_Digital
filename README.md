@@ -18,13 +18,14 @@ src/
     footer.html                  site footer
     body-bottom.html              closing scripts / </body></html>
   pages/
-    <page>.head.html      Per-page <title>/meta/OG/canonical block
-    <page>.content.html   Per-page <main>...</main> content
+    <page>.html           Per-page source: <title>/meta/OG/canonical block, then a lone
+                          `<!-- CONTENT -->` marker line, then the <main>...</main> content
     studio/                Studio section source (see "Adding new content" below)
-    sports/                 Sports section source — a blog index (index.content.html)
-                             plus one .head.html/.content.html pair per article, all flat
-                             under sports/. _article-template.* is the reusable starting
-                             point for new articles (not built — not registered in build.js).
+    sports/                 Sports section source — a blog index (index.html) plus one flat
+                             file per article (sports/<article-slug>.html), auto-discovered by
+                             build.js — no registration needed. _article-template.html is the
+                             reusable starting point for new articles (not built — filenames
+                             starting with "_" are skipped).
 
 build.js               Reads src/ and writes index.html, services.html, etc.
                         (registered in build.js's PAGES array) to the repo root,
@@ -48,55 +49,48 @@ favicon.ico, logo.svg, apple-touch-icon.png, og-image.png,
 manifest.webmanifest, robots.txt, browserconfig.xml   Brand/PWA assets, referenced with relative paths
 ```
 
-Shared markup (nav, footer, `<head>` boilerplate, GA4, schema) lives once in `src/partials/`. Change your phone number or a nav link there and run `node build.js` — it updates all 9 pages at once, instead of hand-editing every `.html` file.
+Shared markup (nav, footer, `<head>` boilerplate, GA4, schema) lives once in `src/partials/`. Change your phone number or a nav link there and run `node build.js` — it updates every page at once, instead of hand-editing every `.html` file.
 
 ## Editing content
 
 - **Shared nav/footer/head/analytics/schema** → edit the relevant file in `src/partials/`.
-- **A page's title, meta description, or OG tags** → edit `src/pages/<page>.head.html`.
-- **A page's actual body content** → edit `src/pages/<page>.content.html`.
+- **A page's title, meta description, or OG tags** → edit the top of `src/pages/<page>.html`, above the `<!-- CONTENT -->` marker.
+- **A page's actual body content** → edit `src/pages/<page>.html` below the `<!-- CONTENT -->` marker.
 - After editing anything in `src/`, run `node build.js` to regenerate the root `.html` files, then commit both the `src/` change and the regenerated output.
 
 The root `.html` files (`index.html`, `services.html`, etc.) are build output — don't hand-edit them, your changes will be overwritten next time someone runs `node build.js` (CI also rebuilds on every deploy, see below). `404.html` is the one exception — it's a standalone page outside the build system since it doesn't share the nav/footer.
 
 Shared look-and-feel lives in `assets/css/style.css`; shared behavior lives in `assets/js/main.js` — neither is part of the build, edit those directly as before.
 
-All shared partials (`nav.html`, `footer.html`, `head-assets.html`, `body-bottom.html`) and `main.js` use **root-absolute paths** (`/assets/...`, `/index.html`), so they work unchanged no matter how deeply nested a page is (e.g. `studio/journal/goodnight-dad.html`). This relies on the site being served from the domain root (`blackmaple.co/`), not a subpath.
+All shared partials (`nav.html`, `footer.html`, `head-assets.html`, `body-bottom.html`) and `main.js` use **root-absolute paths** (`/assets/...`, `/index.html`), so they work unchanged no matter how deeply nested a page is (e.g. `sports/nfl-week-1-predictions.html`). This relies on the site being served from the domain root (`blackmaple.co/`), not a subpath.
 
 ## Adding new content (Studio / Sports)
 
-### A Production Journal entry for an existing film
+### A new film
 
-1. Open `src/pages/studio/journal/<film-slug>.content.html`.
-2. Copy one of the existing dated entry blocks and paste it **at the top** (newest first); edit the date and bullets.
-3. Run `node build.js`.
-
-### A new film (and its journal)
-
-1. Copy `src/pages/studio/goodnight-dad.head.html` + `.content.html` → `src/pages/studio/<new-slug>.head.html` + `.content.html`; edit synopsis/cast/credits.
-2. Copy `src/pages/studio/journal/goodnight-dad.head.html` + `.content.html` → `src/pages/studio/journal/<new-slug>.head.html` + `.content.html`; clear the example entries.
-3. Register both in `build.js`'s `PAGES` array: `{ name: 'studio/<new-slug>', active: 'studio' }` and `{ name: 'studio/journal/<new-slug>', active: 'studio' }`.
-4. Update the film's card in `src/pages/studio/index.content.html` to link to it instead of showing "Coming Soon".
-5. Run `node build.js`.
+1. Copy `src/pages/studio/goodnight-dad.html` → `src/pages/studio/<new-slug>.html`; edit the
+   meta block above `<!-- CONTENT -->`, then the synopsis/cast/credits below it.
+2. Register it in `build.js`'s `PAGES` array: `{ name: 'studio/<new-slug>', active: 'studio' }`.
+3. Update the film's card in `src/pages/studio/index.html` to link to it instead of showing "Coming Soon".
+4. Run `node build.js`.
 
 ### A Sports article
 
 The Sports section is a blog: `sports/index.html` is an archive page (hero + featured card +
 article-card grid), and every article is its own standalone page at `sports/<article-slug>.html`
-— flat, no category subfolders.
+— flat, no category subfolders, and auto-discovered by `build.js` (no `PAGES` registration needed).
 
-1. Copy `src/pages/sports/_article-template.head.html` + `_article-template.content.html` →
-   `src/pages/sports/<article-slug>.head.html` + `.content.html`.
-2. Fill in every `[PLACEHOLDER]` — title, meta description, canonical/OG/Twitter URLs, the
-   `article:published_time`/Article JSON-LD dates, category badge, hero image, and body copy.
-3. Register it in `build.js`'s `PAGES` array: `{ name: 'sports/<article-slug>', active: 'sports' }`.
-4. Add a new `.article-card` to the top of the "Recent Articles" grid in
-   `src/pages/sports/index.content.html` (newest first). If it should be the new featured
+1. Copy `src/pages/sports/_article-template.html` → `src/pages/sports/<article-slug>.html`.
+2. Fill in every `[PLACEHOLDER]` — title, meta description, canonical/OG/Twitter URLs, and the
+   `article:published_time`/Article JSON-LD dates above the `<!-- CONTENT -->` marker; category
+   badge, hero image, and body copy below it.
+3. Add a new `.article-card` to the top of the "Recent Articles" grid in
+   `src/pages/sports/index.html` (newest first). If it should be the new featured
    article, swap it into the featured-article block above the grid too.
-5. Update the **previous** newest article's "Next Article" link (in its `.article-nav`) to point
+4. Update the **previous** newest article's "Next Article" link (in its `.article-nav`) to point
    at the new article, and set the new article's "Previous Article" link back to it.
-6. Add its URL to `sitemap.xml`.
-7. Run `node build.js`.
+5. Add its URL to `sitemap.xml`.
+6. Run `node build.js`.
 
 Every workflow above ends with `node build.js`, then committing both the `src/` change and the regenerated output.
 

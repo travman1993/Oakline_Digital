@@ -1,7 +1,58 @@
 <!--
-  SPORTS ARTICLE TEMPLATE — content. See _article-template.head.html for the full
-  publishing checklist. Replace every [PLACEHOLDER] below; delete these comments once done.
+  SPORTS ARTICLE TEMPLATE — not built directly (filename starts with "_", so build.js skips it).
+
+  To publish a new article:
+  1. Copy this file to src/pages/sports/<article-slug>.html
+  2. Replace every ALL-CAPS [PLACEHOLDER] below — SEO meta above the CONTENT marker, then the
+     category/title/date/body/share/nav/related-articles content below it.
+  3. Add an .article-card for it to the top of the "Recent Articles" grid in
+     src/pages/sports/index.content.html (and swap it into the featured block if it's newest).
+  4. Point the previous newest article's "Next Article" link at this one, and set this one's
+     "Previous Article" link back to it.
+  5. Add its URL to sitemap.xml.
+  6. Run `node build.js` — it's auto-discovered, no registration needed.
 -->
+  <title>[ARTICLE TITLE] | Black Maple Sports</title>
+  <meta name="description" content="[ONE-SENTENCE META DESCRIPTION — 150-160 CHARACTERS, SUMMARIZES THE ARTICLE FOR SEARCH RESULTS]" />
+  <meta name="author" content="Black Maple Digital" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://blackmaple.co/sports/[ARTICLE-SLUG].html" />
+  <meta name="theme-color" content="#0b0f0d" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Black Maple Digital" />
+  <meta property="og:title" content="[ARTICLE TITLE] | Black Maple Sports" />
+  <meta property="og:description" content="[SAME OR SIMILAR TO META DESCRIPTION ABOVE]" />
+  <meta property="og:image" content="/assets/img/sports/[ARTICLE-SLUG].jpg" />
+  <meta property="og:url" content="https://blackmaple.co/sports/[ARTICLE-SLUG].html" />
+  <meta property="article:published_time" content="[YYYY-MM-DD]" />
+  <meta property="article:section" content="[CATEGORY, e.g. NFL / Detroit Lions / Michigan Football]" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="[ARTICLE TITLE] | Black Maple Sports" />
+  <meta name="twitter:description" content="[SAME OR SIMILAR TO META DESCRIPTION ABOVE]" />
+  <meta name="twitter:image" content="/assets/img/sports/[ARTICLE-SLUG].jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "[ARTICLE TITLE]",
+    "description": "[SAME OR SIMILAR TO META DESCRIPTION ABOVE]",
+    "image": "https://blackmaple.co/assets/img/sports/[ARTICLE-SLUG].jpg",
+    "datePublished": "[YYYY-MM-DD]",
+    "dateModified": "[YYYY-MM-DD]",
+    "author": { "@type": "Organization", "name": "Black Maple Sports", "url": "https://blackmaple.co/sports/index.html" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Black Maple Digital",
+      "logo": { "@type": "ImageObject", "url": "https://blackmaple.co/logo.svg" }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://blackmaple.co/sports/[ARTICLE-SLUG].html" }
+  }
+  </script>
+
+<!-- CONTENT -->
   <main>
     <article>
       <section class="page-header">
