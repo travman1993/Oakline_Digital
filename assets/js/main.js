@@ -151,6 +151,24 @@
     }
   }
 
+  function initAudioToggle() {
+    var buttons = document.querySelectorAll('[data-audio-toggle]');
+    if (!buttons.length) return;
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = document.querySelector(btn.getAttribute('data-audio-toggle'));
+        if (!target) return;
+
+        target.hidden = false;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        var audio = target.querySelector('audio');
+        if (audio) audio.play().catch(function () {});
+      });
+    });
+  }
+
   function initFooterYear() {
     document.querySelectorAll('[data-year]').forEach(function (el) {
       el.textContent = new Date().getFullYear();
@@ -164,6 +182,7 @@
     initReveal();
     initPortfolioFilter();
     initContactForm();
+    initAudioToggle();
     initFooterYear();
   });
 })();

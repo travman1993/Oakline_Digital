@@ -25,12 +25,6 @@ const PAGES = [
   { name: 'studio/goodnight-dad', active: 'studio' },
   { name: 'studio/blog/index', active: 'studio' },
   { name: 'sports/index', active: 'sports' },
-  { name: 'sports/nfl/index', active: 'sports' },
-  { name: 'sports/detroit-lions/index', active: 'sports' },
-  { name: 'sports/michigan-football/index', active: 'sports' },
-  { name: 'sports/draft/index', active: 'sports' },
-  { name: 'sports/trades/index', active: 'sports' },
-  { name: 'sports/contracts/index', active: 'sports' },
 ];
 const ACTIVE_SLUGS = ['index', 'services', 'portfolio', 'studio', 'sports', 'process', 'pricing', 'faq', 'contact'];
 

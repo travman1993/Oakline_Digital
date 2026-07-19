@@ -150,8 +150,19 @@
         <h1 class="reveal">Goodnight, Dad</h1>
         <p class="reveal">Released July 2026</p>
         <div class="reveal btn-row" style="justify-content:center;margin-top:1.5rem">
-          <a href="#platforms" class="btn btn-primary btn-lg">&#9658; Listen Now</a>
-          <a href="#journal" class="btn btn-secondary btn-lg">Production Journal</a>
+          <button type="button" class="btn btn-primary btn-lg" data-audio-toggle="#player">&#9658; Listen Now</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="player" class="section-tight" hidden>
+      <div class="container" style="max-width:42rem">
+        <div class="reveal card-surface rounded-3xl" style="padding:2rem">
+          <p class="eyebrow" style="margin-bottom:0.75rem">Now Playing &middot; Goodnight, Dad</p>
+          <audio controls preload="none" style="width:100%" src="/assets/audio/goodnight-dad.mp3">
+            Your browser does not support the audio element.
+          </audio>
+          <p style="margin-top:0.75rem;color:var(--muted);font-size:0.875rem">Placeholder audio source — replace with the real file before launch.</p>
         </div>
       </div>
     </section>
@@ -203,40 +214,6 @@
           <a href="#" class="btn btn-secondary">RSS</a>
         </div>
         <p style="margin-top:1rem;color:var(--muted);font-size:0.875rem">Links go live at launch — replace the placeholders above with real platform URLs.</p>
-      </div>
-    </section>
-
-    <section id="journal" class="section-tight border-t">
-      <div class="container" style="max-width:42rem">
-        <div class="section-heading align-left">
-          <h2>Production Journal</h2>
-          <p>Behind-the-scenes updates as this film comes together.</p>
-        </div>
-
-        <!-- Newest entry goes here. Copy one of the blocks below, move it to the top,
-             then change the date and bullets. -->
-        <div class="reveal card-surface rounded-3xl" style="padding:1.5rem 2rem;margin-top:1.5rem;margin-bottom:1.5rem">
-          <p class="eyebrow" style="margin-bottom:0.5rem">July 18</p>
-          <ul class="footer-list">
-            <li>Released trailer.</li>
-          </ul>
-        </div>
-        <div class="reveal card-surface rounded-3xl" style="padding:1.5rem 2rem;margin-bottom:1.5rem">
-          <p class="eyebrow" style="margin-bottom:0.5rem">July 15</p>
-          <ul class="footer-list">
-            <li>Added thunder.</li>
-            <li>Changed ending.</li>
-            <li>Found new footsteps sound effects.</li>
-          </ul>
-        </div>
-        <div class="reveal card-surface rounded-3xl" style="padding:1.5rem 2rem">
-          <p class="eyebrow" style="margin-bottom:0.5rem">July 12</p>
-          <ul class="footer-list">
-            <li>Finished Scene 6.</li>
-            <li>Created rain ambience.</li>
-            <li>Recorded Dad's dialogue.</li>
-          </ul>
-        </div>
       </div>
     </section>
   </main>

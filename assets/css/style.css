@@ -799,6 +799,9 @@ html.dark .addon-tag { color: var(--gold-400); }
   font-size: 0.875rem; font-weight: 600; color: #fff;
   background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
 }
+.blog-media { position: relative; aspect-ratio: 16 / 9; border-radius: 1rem; overflow: hidden; margin: 1rem 0; background: rgba(0,0,0,0.04); }
+html.dark .blog-media { background: rgba(255,255,255,0.06); }
+.blog-media img, .blog-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .addon-options { margin-top: 2rem; display: grid; grid-template-columns: 1fr; gap: 1rem; }
 @media (min-width: 640px) { .addon-options { grid-template-columns: repeat(2, 1fr); } }
 .addon-options > div { border-radius: 1rem; padding: 1.25rem; }
