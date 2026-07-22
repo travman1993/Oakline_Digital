@@ -20,30 +20,29 @@ src/
   pages/
     <page>.html           Per-page source: <title>/meta/OG/canonical block, then a lone
                           `<!-- CONTENT -->` marker line, then the <main>...</main> content
-    studio/                Studio section source (see "Adding new content" below)
-    sports/                 Sports section source — a blog index (index.html) plus one flat
-                             file per article (sports/<article-slug>.html), auto-discovered by
-                             build.js — no registration needed. _article-template.html is the
-                             reusable starting point for new articles (not built — filenames
-                             starting with "_" are skipped).
+    photography/            Photography section source (single index.html — see
+                             "Photography gallery" below for how the image grid works)
 
 build.js               Reads src/ and writes index.html, services.html, etc.
                         (registered in build.js's PAGES array) to the repo root,
-                        including nested output like studio/index.html and
-                        sports/nfl-week-1-predictions.html. Run `node build.js` after any src/ edit.
+                        including nested output like photography/index.html.
+                        Run `node build.js` after any src/ edit.
 
 index.html, services.html, portfolio.html, process.html,     GENERATED — do not
 pricing.html, faq.html, contact.html, privacy.html, terms.html,  hand-edit these,
-studio/, sports/                                                  edit src/ instead
+photography/                                                      edit src/ instead
 404.html               Not-found page — standalone, not part of the build
 
 assets/
   css/style.css        All styles (design tokens, dark mode, components)
   js/main.js           Shared behavior (theme toggle, mobile nav, scroll reveal,
-                       portfolio filter, contact form, navbar scroll state)
+                       portfolio filter, contact form + intent prefill, photography
+                       gallery/lightbox, navbar scroll state)
+  js/photography-images.js  Flat list of gallery filenames — see "Photography gallery" below
   icons/sprite.svg     One <symbol> per icon used on the site, referenced via
                        <svg><use href="assets/icons/sprite.svg#icon-name"></use></svg>
   img/portfolio/       Portfolio screenshots go here (see naming convention below)
+  img/photography/gallery/  Photography gallery images (see "Photography gallery" below)
 
 favicon.ico, logo.svg, apple-touch-icon.png, og-image.png,
 manifest.webmanifest, robots.txt, browserconfig.xml   Brand/PWA assets, referenced with relative paths
@@ -62,37 +61,30 @@ The root `.html` files (`index.html`, `services.html`, etc.) are build output �
 
 Shared look-and-feel lives in `assets/css/style.css`; shared behavior lives in `assets/js/main.js` — neither is part of the build, edit those directly as before.
 
-All shared partials (`nav.html`, `footer.html`, `head-assets.html`, `body-bottom.html`) and `main.js` use **root-absolute paths** (`/assets/...`, `/index.html`), so they work unchanged no matter how deeply nested a page is (e.g. `sports/nfl-week-1-predictions.html`). This relies on the site being served from the domain root (`blackmaple.co/`), not a subpath.
+All shared partials (`nav.html`, `footer.html`, `head-assets.html`, `body-bottom.html`) and `main.js` use **root-absolute paths** (`/assets/...`, `/index.html`), so they work unchanged no matter how deeply nested a page is (e.g. `photography/index.html`). This relies on the site being served from the domain root (`blackmaple.co/`), not a subpath.
 
-## Adding new content (Studio / Sports)
+## Photography gallery
 
-### A new film
+The gallery on `photography/index.html` is a plain masonry grid (CSS columns, no JS layout
+math) with a shuffle-on-load order, "Load More" pagination, and a lightbox — all driven by
+`assets/js/photography-images.js` and `initPhotoGallery()` in `assets/js/main.js`.
 
-1. Copy `src/pages/studio/goodnight-dad.html` → `src/pages/studio/<new-slug>.html`; edit the
-   meta block above `<!-- CONTENT -->`, then the synopsis/cast/credits below it.
-2. Register it in `build.js`'s `PAGES` array: `{ name: 'studio/<new-slug>', active: 'studio' }`.
-3. Update the film's card in `src/pages/studio/index.html` to link to it instead of showing "Coming Soon".
-4. Run `node build.js`.
+To add a photo:
 
-### A Sports article
+1. Drop the image file into `assets/img/photography/gallery/`.
+2. Add its filename to the `PHOTOGRAPHY_IMAGES` array in `assets/js/photography-images.js`.
 
-The Sports section is a blog: `sports/index.html` is an archive page (hero + featured card +
-article-card grid), and every article is its own standalone page at `sports/<article-slug>.html`
-— flat, no category subfolders, and auto-discovered by `build.js` (no `PAGES` registration needed).
+That's it — no layout, sizing, or markup changes needed. Images render at their natural aspect
+ratio (portrait and landscape both work), and the grid, "Load More" batching, shuffle, and
+lightbox all pick up the new file automatically.
 
-1. Copy `src/pages/sports/_article-template.html` → `src/pages/sports/<article-slug>.html`.
-2. Fill in every `[PLACEHOLDER]` — title, meta description, canonical/OG/Twitter URLs, and the
-   `article:published_time`/Article JSON-LD dates above the `<!-- CONTENT -->` marker; category
-   badge, hero image, and body copy below it.
-3. Add a new `.article-card` to the top of the "Recent Articles" grid in
-   `src/pages/sports/index.html` (newest first). If it should be the new featured
-   article, swap it into the featured-article block above the grid too.
-4. Update the **previous** newest article's "Next Article" link (in its `.article-nav`) to point
-   at the new article, and set the new article's "Previous Article" link back to it.
-5. Add its URL to `sitemap.xml`.
-6. Run `node build.js`.
+## Photography intent links
 
-Every workflow above ends with `node build.js`, then committing both the `src/` change and the regenerated output.
+Any button that should send a visitor to the contact form with the right service pre-selected
+links to `/contact.html?intent=photography` (or `?intent=bundle` for the future
+Website + Photography bundle button). `initContactPrefill()` in `main.js` reads that query
+param, selects the matching option in the Service dropdown, fills in a starter message, and
+smooth-scrolls the form into view — everything stays editable before sending.
 
 ## Dark mode
 

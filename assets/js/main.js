@@ -151,44 +151,146 @@
     }
   }
 
-  function initAudioToggle() {
-    var buttons = document.querySelectorAll('[data-audio-toggle]');
-    if (!buttons.length) return;
+  // Prefills the contact form based on a ?intent= query param (e.g. a "Book Business
+  // Photography" button elsewhere on the site linking to /contact.html?intent=photography),
+  // then smooth-scrolls the form into view. Everything stays editable afterward.
+  function initContactPrefill() {
+    var form = document.querySelector('[data-contact-form]');
+    if (!form) return;
 
-    buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var target = document.querySelector(btn.getAttribute('data-audio-toggle'));
-        if (!target) return;
+    var TEMPLATES = {
+      photography: {
+        service: 'Business Photography',
+        message:
+          "Hi!\n\nI'm interested in Business Photography.\n\n" +
+          'Business Location: \n\n' +
+          'Type of Business: \n\n' +
+          'What would you like photographed?\n' +
+          '☐ Storefront\n☐ Interior\n☐ Team\n☐ Products\n☐ Fleet / Vehicles\n☐ Other\n\n' +
+          'Preferred Date: \n\n' +
+          "Anything else you'd like us to know?",
+      },
+      bundle: {
+        service: 'Website + Photography Bundle',
+        message:
+          "Hi!\n\nI'm interested in a new website along with Business Photography.\n\n" +
+          'Business Location: \n\n' +
+          'Type of Business: \n\n' +
+          'Current Website (if applicable): \n\n' +
+          'Tell us about your project:',
+      },
+    };
 
-        target.hidden = false;
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var intent = new URLSearchParams(window.location.search).get('intent');
+    var template = TEMPLATES[intent];
+    if (!template) return;
 
-        var audio = target.querySelector('audio');
-        if (audio) audio.play().catch(function () {});
-      });
+    var select = form.elements['service'];
+    var textarea = form.elements['message'];
+    if (select) select.value = template.service;
+    if (textarea && !textarea.value) textarea.value = template.message;
+
+    var card = form.closest('.contact-form-card') || form;
+    window.requestAnimationFrame(function () {
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }
 
-  function initCopyLink() {
-    var buttons = document.querySelectorAll('[data-copy-link]');
-    if (!buttons.length) return;
+  // Photography gallery: renders a masonry grid from window.PHOTOGRAPHY_IMAGES (shuffled
+  // fresh on every load), paginates with "Load More", and opens a simple prev/next/close
+  // lightbox. Adding a photo only requires dropping a file into the images folder and
+  // listing its name in assets/js/photography-images.js — no layout code to touch.
+  function initPhotoGallery() {
+    var grid = document.querySelector('[data-photo-grid]');
+    if (!grid) return;
 
-    buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var url = btn.getAttribute('data-copy-link');
-        var feedback = btn.parentElement.querySelector('[data-copy-feedback]');
+    var BASE = '/assets/img/photography/gallery/';
+    var PAGE_SIZE = 9;
+    var images = (window.PHOTOGRAPHY_IMAGES || []).slice();
 
-        function showFeedback() {
-          if (!feedback) return;
-          feedback.classList.add('is-visible');
-          setTimeout(function () { feedback.classList.remove('is-visible'); }, 2000);
-        }
+    for (var i = images.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = images[i];
+      images[i] = images[j];
+      images[j] = tmp;
+    }
 
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(url).then(showFeedback).catch(function () {});
-        }
+    var loadMoreBtn = document.querySelector('[data-photo-load-more]');
+    var lightbox = document.querySelector('[data-lightbox]');
+    var lightboxImg = lightbox ? lightbox.querySelector('[data-lightbox-img]') : null;
+    var shown = 0;
+    var currentIndex = 0;
+
+    function setLightboxImage(index) {
+      currentIndex = index;
+      if (lightboxImg) lightboxImg.src = BASE + images[currentIndex];
+    }
+
+    function openLightbox(index) {
+      if (!lightbox) return;
+      setLightboxImage(index);
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+
+    function showRelative(delta) {
+      setLightboxImage((currentIndex + delta + images.length) % images.length);
+    }
+
+    function renderBatch() {
+      images.slice(shown, shown + PAGE_SIZE).forEach(function (file, i) {
+        var index = shown + i;
+        var item = document.createElement('a');
+        item.href = BASE + file;
+        item.className = 'photo-item';
+
+        var img = document.createElement('img');
+        img.src = BASE + file;
+        img.alt = 'Black Maple Digital business photography example';
+        img.loading = 'lazy';
+        item.appendChild(img);
+
+        item.addEventListener('click', function (e) {
+          e.preventDefault();
+          openLightbox(index);
+        });
+
+        grid.appendChild(item);
       });
-    });
+      shown = Math.min(shown + PAGE_SIZE, images.length);
+
+      if (loadMoreBtn) loadMoreBtn.hidden = shown >= images.length;
+    }
+
+    renderBatch();
+    if (loadMoreBtn) loadMoreBtn.addEventListener('click', renderBatch);
+
+    if (lightbox) {
+      var closeBtn = lightbox.querySelector('[data-lightbox-close]');
+      var prevBtn = lightbox.querySelector('[data-lightbox-prev]');
+      var nextBtn = lightbox.querySelector('[data-lightbox-next]');
+
+      if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+      if (prevBtn) prevBtn.addEventListener('click', function () { showRelative(-1); });
+      if (nextBtn) nextBtn.addEventListener('click', function () { showRelative(1); });
+
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showRelative(-1);
+        if (e.key === 'ArrowRight') showRelative(1);
+      });
+    }
   }
 
   function initFooterYear() {
@@ -204,8 +306,8 @@
     initReveal();
     initPortfolioFilter();
     initContactForm();
-    initAudioToggle();
-    initCopyLink();
+    initContactPrefill();
+    initPhotoGallery();
     initFooterYear();
   });
 })();

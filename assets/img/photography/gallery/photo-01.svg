@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-label="Storefront placeholder photo">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e6c378"/>
+      <stop offset="100%" stop-color="#b1812f"/>
+    </linearGradient>
+    <pattern id="dots1" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1.1" fill="rgba(255,255,255,0.16)"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="1600" fill="url(#grad1)"/>
+  <rect width="1200" height="1600" fill="url(#dots1)"/>
+  <circle cx="275" cy="1165" r="420" fill="rgba(255,255,255,0.06)"/>
+  <g transform="translate(516.0,716.0) scale(7.000)" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 8h2l1.4-1.8a1 1 0 0 1 .8-.4h5.6a1 1 0 0 1 .8.4L21 8h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+    <circle cx="14" cy="14.5" r="3.2"/>
+  </g>
+  <rect x="0" y="1376" width="1200" height="224" fill="rgba(0,0,0,0.28)"/>
+  <text x="54" y="1528" font-family="Manrope, sans-serif" font-size="54" font-weight="700" fill="rgba(255,255,255,0.92)">Storefront</text>
+</svg>

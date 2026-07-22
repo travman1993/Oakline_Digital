@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 1300" role="img" aria-label="Product Detail placeholder photo">
+  <defs>
+    <linearGradient id="grad8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d9a354"/>
+      <stop offset="100%" stop-color="#9c651f"/>
+    </linearGradient>
+    <pattern id="dots8" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1.1" fill="rgba(255,255,255,0.16)"/>
+    </pattern>
+  </defs>
+  <rect width="1300" height="1300" fill="url(#grad8)"/>
+  <rect width="1300" height="1300" fill="url(#dots8)"/>
+  <circle cx="464" cy="758" r="455" fill="rgba(255,255,255,0.06)"/>
+  <g transform="translate(559.0,559.0) scale(7.583)" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 8h2l1.4-1.8a1 1 0 0 1 .8-.4h5.6a1 1 0 0 1 .8.4L21 8h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+    <circle cx="14" cy="14.5" r="3.2"/>
+  </g>
+  <rect x="0" y="1118" width="1300" height="182" fill="rgba(0,0,0,0.28)"/>
+  <text x="58" y="1242" font-family="Manrope, sans-serif" font-size="58" font-weight="700" fill="rgba(255,255,255,0.92)">Product Detail</text>
+</svg>

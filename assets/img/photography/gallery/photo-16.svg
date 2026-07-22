@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1067" role="img" aria-label="Counter Display placeholder photo">
+  <defs>
+    <linearGradient id="grad16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d9a354"/>
+      <stop offset="100%" stop-color="#9c651f"/>
+    </linearGradient>
+    <pattern id="dots16" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1.1" fill="rgba(255,255,255,0.16)"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1067" fill="url(#grad16)"/>
+  <rect width="1600" height="1067" fill="url(#dots16)"/>
+  <circle cx="740" cy="960" r="373" fill="rgba(255,255,255,0.06)"/>
+  <g transform="translate(725.3,458.8) scale(6.224)" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 8h2l1.4-1.8a1 1 0 0 1 .8-.4h5.6a1 1 0 0 1 .8.4L21 8h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>
+    <circle cx="14" cy="14.5" r="3.2"/>
+  </g>
+  <rect x="0" y="918" width="1600" height="149" fill="rgba(0,0,0,0.28)"/>
+  <text x="72" y="1019" font-family="Manrope, sans-serif" font-size="48" font-weight="700" fill="rgba(255,255,255,0.92)">Counter Display</text>
+</svg>

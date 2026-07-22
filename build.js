@@ -7,29 +7,25 @@ const path = require('path');
 
 const ROOT = __dirname;
 const SRC = path.join(ROOT, 'src');
-const SPORTS_DIR = path.join(SRC, 'pages', 'sports');
 const CONTENT_MARKER = '<!-- CONTENT -->';
 
 // name: path (relative to src/pages/ and to the repo root) of a single <name>.html source file
 // — nested names create nested output dirs. Each source file holds the <head> block, then a
 // lone `<!-- CONTENT -->` marker line, then the <main> body.
 // active: which nav link should get is-active (matches an ACTIVE_SLUGS entry below).
-// Sports articles are NOT listed here — see the auto-discovery loop below.
 const PAGES = [
   { name: 'index', active: 'index' },
   { name: 'services', active: 'services' },
   { name: 'portfolio', active: 'portfolio' },
+  { name: 'photography/index', active: 'photography' },
   { name: 'process', active: 'process' },
   { name: 'pricing', active: 'pricing' },
   { name: 'faq', active: 'faq' },
   { name: 'contact', active: 'contact' },
   { name: 'privacy', active: 'privacy' },
   { name: 'terms', active: 'terms' },
-  { name: 'studio/index', active: 'studio' },
-  { name: 'studio/goodnight-dad', active: 'studio' },
-  { name: 'sports/index', active: 'sports' },
 ];
-const ACTIVE_SLUGS = ['index', 'services', 'portfolio', 'studio', 'sports', 'process', 'pricing', 'faq', 'contact'];
+const ACTIVE_SLUGS = ['index', 'services', 'portfolio', 'photography', 'process', 'pricing', 'faq', 'contact'];
 
 function read(relPath) {
   return fs.readFileSync(path.join(SRC, relPath), 'utf8');
@@ -100,18 +96,4 @@ function buildPage(name, active, head, content) {
 for (const page of PAGES) {
   const { head, content } = splitPage(path.join(SRC, 'pages', `${page.name}.html`), `src/pages/${page.name}.html`);
   buildPage(page.name, page.active, head, content);
-}
-
-// Sports articles — one flat file per article in src/pages/sports/<slug>.html, auto-discovered
-// (no PAGES entry needed). _article-template.html (the copy-and-edit starting point) and
-// index.html (registered above, since it's the archive page) are skipped.
-// See README.md for the publishing workflow.
-const articleFiles = fs
-  .readdirSync(SPORTS_DIR)
-  .filter((f) => f.endsWith('.html') && f !== 'index.html' && !f.startsWith('_'));
-
-for (const file of articleFiles) {
-  const slug = file.replace(/\.html$/, '');
-  const { head, content } = splitPage(path.join(SPORTS_DIR, file), `src/pages/sports/${file}`);
-  buildPage(`sports/${slug}`, 'sports', head, content);
 }
